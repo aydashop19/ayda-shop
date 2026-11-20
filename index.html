@@ -168,6 +168,17 @@
         .section-title { font-size: 1.55rem; font-weight: 700; color: var(--text-primary); line-height: 1.25; }
         .section-subtitle { font-size: 0.88rem; color: var(--text-secondary); margin-top: 6px; }
 
+        .brand-note {
+            margin-top: 10px;
+            background: var(--bg-accent-soft);
+            border-left: 3px solid var(--brand-gold);
+            padding: 10px 12px;
+            border-radius: 0 10px 10px 0;
+            font-size: 0.76rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
         /* STATS */
         .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
         .stat-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 16px 10px; text-align: center; box-shadow: var(--shadow-card); }
@@ -264,6 +275,7 @@
         .contact-copy-box { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.12); display: flex; flex-direction: column; gap: 8px; }
         .copy-row { display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.06); padding: 10px 14px; border-radius: 10px; font-size: 0.82rem; }
         .copy-trigger { background: rgba(255, 255, 255, 0.14); border: none; color: var(--brand-gold-light); padding: 5px 10px; border-radius: 6px; font-size: 0.72rem; font-weight: 700; cursor: pointer; }
+        .footer-disclaimer { margin-top: 14px; font-size: 0.7rem; color: rgba(255, 255, 255, 0.58); line-height: 1.45; }
 
         /* STICKY BAR */
         .sticky-bar {
@@ -336,7 +348,7 @@
             <h1 class="hero-name">Ayda Shop</h1>
             <p class="hero-role">Marketing Executive • Ayda Shop</p>
             <p class="hero-bio">
-                Membantu wanita tampil yakin dengan rangkaian penjagaan kulit & kosmetik tulen pilihan pakar. Dari konsultasi kulit peribadi hingga kolaborasi kempen kecantikan berimpak tinggi.
+                Membantu pelanggan memilih rangkaian penjagaan kulit, mandian, wangian & kosmetik pilihan yang dikurasi oleh Ayda Shop — disertai konsultasi rutin harian yang mesra dan praktikal.
             </p>
 
             <div class="hero-cta-group">
@@ -384,7 +396,7 @@
             </div>
             <div class="stat-card">
                 <span class="stat-number">100%</span>
-                <span class="stat-label">Produk Tulen & Diuji</span>
+                <span class="stat-label">Kurasi Pilihan Teliti</span>
             </div>
             <div class="stat-card">
                 <span class="stat-number">4.9★</span>
@@ -401,11 +413,11 @@
                 “Kecantikan sebenar bermula apabila anda memahami keperluan kulit anda dengan formulasi yang tepat.”
             </p>
             <p class="story-text">
-                Sebagai Marketing Executive di <strong>Ayda Shop</strong>, saya komited menghubungkan pelanggan dengan jenama skincare & kosmetik terbaik seperti Glad2Glow, The Ordinary, Mary Kay, dan M.A.C — disertai bimbingan rutin harian yang jujur dan berkesan.
+                Sebagai Marketing Executive di <strong>Ayda Shop</strong>, saya membantu pelanggan memilih produk kecantikan dan penjagaan diri daripada pelbagai jenama terkenal yang dikurasi khas — disertai bimbingan rutin harian yang jujur dan mudah diikuti.
             </p>
             <div class="story-highlights">
                 <span class="pill-tag">Skincare Consultation</span>
-                <span class="pill-tag">100% Authentic Curated</span>
+                <span class="pill-tag">Curated Selection</span>
                 <span class="pill-tag">TikTok Beauty Trend</span>
             </div>
         </div>
@@ -414,9 +426,12 @@
     <!-- PRODUK UTAMA AYDA SHOP (31 PRODUK TERBINA TERUS DALAM HTML) -->
     <section class="section" id="katalog-produk">
         <div class="section-header">
-            <span class="section-tag">Koleksi Terlaris 2026</span>
+            <span class="section-tag">Koleksi Kurasi Pilihan</span>
             <h2 class="section-title">Produk Utama Ayda Shop</h2>
             <p class="section-subtitle">Klik mana-mana produk untuk melihat manfaat utama & tempahan pantas.</p>
+            <div class="brand-note">
+                <strong>Nota Penjenamaan:</strong> Ayda Shop ialah kedai kurasi bebas (*curated reseller / personal shopper*) yang menawarkan pelbagai jenama pihak ketiga dan tidak mewakili atau bergabung secara rasmi dengan pemilik tanda dagang jenama yang dipaparkan.
+            </div>
         </div>
 
         <div class="filter-tabs" id="categoryTabs">
@@ -860,7 +875,7 @@
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
                 <p class="review-text">
-                    "Layanan pantas dan sangat mesra. Barang sampai dalam keadaan elok, original 100%, siap dapat tip cara layer serum The Ordinary dengan betul."
+                    "Layanan pantas dan sangat mesra. Barang sampai dalam keadaan elok dan kemas, siap dapat tip cara layer serum The Ordinary dengan betul."
                 </p>
                 <div class="reviewer">
                     <div class="reviewer-avatar">AI</div>
@@ -901,11 +916,11 @@
         <div class="faq-list">
             <div class="faq-item">
                 <button type="button" class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                    <span>Adakah semua produk di Ayda Shop 100% original?</span>
+                    <span>Bagaimana Ayda Shop memilih produk yang ditawarkan?</span>
                     <span class="faq-chevron">▾</span>
                 </button>
                 <div class="faq-answer">
-                    Ya, 100% tulen. Setiap produk diperoleh terus daripada pengedar sah dan jenama rasmi bagi menjamin keselamatan serta keberkesanan pada kulit anda.
+                    Setiap produk dikurasi daripada pembekal pilihan yang dipercayai berdasarkan permintaan pelanggan, kesesuaian rutin harian, dan kualiti pembungkusan.
                 </div>
             </div>
             <div class="faq-item">
@@ -961,6 +976,10 @@
                     <button type="button" class="copy-trigger" onclick="copyText('Aydashop19@gmail.com', 'Alamat e-mel disalin!')">Salin</button>
                 </div>
             </div>
+
+            <p class="footer-disclaimer">
+                Semua nama jenama, logo dan imej produk pihak ketiga adalah hak milik pemilik masing-masing dan dipaparkan semata-mata untuk tujuan katalog kurasi Ayda Shop.
+            </p>
         </div>
     </section>
 
@@ -1094,7 +1113,7 @@
         document.getElementById('modalBenefits').innerHTML = p.benefits.map(function(b) {
             return '<li><span style="color:#1B5459;font-weight:700;">✓</span><span>' + b + '</span></li>';
         }).join('');
-        var waMsg = encodeURIComponent('Hai Ayda Shop! Saya berminat dengan produk *' + p.brand + ' - ' + p.name + '*. Boleh kongsikan harga & stok terkini?');
+        var waMsg = encodeURIComponent('Hai Ayda Shop! Saya berminat dengan produk kurasi *' + p.brand + ' - ' + p.name + '*. Boleh kongsikan info & ketersediaan terkini?');
         document.getElementById('modalWaLink').href = 'https://wa.me/601174717796?text=' + waMsg;
         document.getElementById('productModal').classList.add('show');
     }
@@ -1107,7 +1126,7 @@
         if (navigator.share) {
             navigator.share({
                 title: 'Ayda Shop | Marketing Executive',
-                text: 'Terokai koleksi produk kecantikan tulen & konsultasi kulit bersama Ayda Shop.',
+                text: 'Terokai koleksi produk kecantikan pilihan & konsultasi kulit bersama Ayda Shop.',
                 url: CARD_URL
             }).catch(function() {});
         } else {
