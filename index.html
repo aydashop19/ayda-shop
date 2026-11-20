@@ -407,7 +407,6 @@
             margin-top: 6px;
         }
 
-        /* Ensure content is always visible even inside sandboxed preview iframes */
         .reveal {
             opacity: 1;
             transform: translateY(0);
@@ -1632,7 +1631,6 @@
             Imbas kamera telefon anda untuk membuka kad bisnes digital ini serta-merta.
         </p>
         <div style="background: #FFF; padding: 16px; border-radius: 18px; border: 1px solid var(--border-color); display: inline-block; margin-bottom: 18px;">
-            <!-- Crisp SVG QR Code generated for Ayda Shop vCard / Link -->
             <svg width="170" height="170" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="100" height="100" rx="8" fill="#FFFFFF"/>
                 <path fill="#1B5459" d="M10 10h24v24H10V10zm4 4v16h16V14H14zm4 4h8v8h-8v-8zm48-8h24v24H66V10zm4 4v16h16V14H70zm4 4h8v8h-8v-8zM10 66h24v24H10V66zm4 4v16h16V70H14zm4 4h8v8h-8v-8z"/>
@@ -1654,13 +1652,12 @@
 </div>
 
 <script>
-    // Initialize Lucide Vector Icons safely
     if (window.lucide) {
         lucide.createIcons();
     }
 
     /* ==========================================================================
-       1. PRODUCT CATALOG DATA (MATCHING EXACT GITHUB FILENAMES + SMART FALLBACKS)
+       1. PRODUCT CATALOG DATA + LIVE GITHUB REPO AUTO-DISCOVERY
        ========================================================================== */
     const products = [
         {
@@ -1669,8 +1666,9 @@
             name: "Blueberry 5% Ceramide Moisturizer",
             category: "moisturizer",
             badge: "Best Seller",
+            keywords: ["blueberry", "ceramide"],
             img: "glad2glow blueberry 5% ceramide moistturizer.jpg",
-            altImgs: ["Glad2Glow blueberry 5% ceramide moistturizer.jpg", "glad2glow blueberry 5% ceramide moisturizer.jpg", "823.jpg"],
+            altImgs: ["Glad2Glow blueberry 5% ceramide moistturizer.jpg", "glad2glow blueberry 5% ceramide moisturizer.jpg", "Glad2Glow Blueberry 5% Ceramide Moisturizer.jpg", "823.jpg"],
             desc: "Pelembap bertekstur ringan dengan ekstrak Blueberry dan 5% Ceramide untuk menenangkan kemerahan, merawat jerawat, dan menguatkan skin barrier.",
             benefits: [
                 "Melegakan kemerahan & iritasi kulit sensitif",
@@ -1684,6 +1682,7 @@
             name: "Centella Allantoin Soothing Gel",
             category: "moisturizer",
             badge: "Calming Care",
+            keywords: ["centella", "allantoin"],
             img: "Glad2Glow Centella Allantoin Soothing Gel .jpg",
             altImgs: ["Glad2Glow Centella Allantoin Soothing Gel.jpg", "glad2glow Centella Allantoin Soothing Gel .jpg"],
             desc: "Gel pelembap menyegarkan yang diperkaya dengan Centella Asiatica dan Allantoin untuk menyejukkan kulit kemerahan serta mengawal minyak berlebihan.",
@@ -1699,8 +1698,9 @@
             name: "Pomegranate Niacinamide Brightening",
             category: "moisturizer",
             badge: "Glow Boost",
+            keywords: ["pomegranate", "niacinamide"],
             img: "glad2glow pomegranate niacinamide brightening moisturizer.jpg",
-            altImgs: ["Glad2Glow pomegranate niacinamide brightening moisturizer.jpg"],
+            altImgs: ["Glad2Glow pomegranate niacinamide brightening moisturizer.jpg", "Glad2Glow Pomegranate Niacinamide Brightening Moisturizer.jpg", "glad2glow pomegranate niacinamide brightening.jpg"],
             desc: "Pelembap pencerah dengan kombinasi ekstrak Delima (Pomegranate) dan Niacinamide untuk menyekatakan tona kulit kusam agar tampil berseri.",
             benefits: [
                 "Mencerahkan kulit kusam secara semula jadi",
@@ -1714,6 +1714,7 @@
             name: "Yuja 377 Dark Spot Moisturizer",
             category: "moisturizer",
             badge: "Dark Spot",
+            keywords: ["yuja", "377"],
             img: "glad2glow yuja 377 dark spot moisturizer.jpg",
             altImgs: ["Glad2Glow yuja 377 dark spot moisturizer.jpg"],
             desc: "Formulasi khas dengan ekstrak Yuja dan SymWhite 377 yang menyasarkan bintik hitam serta parut jerawat untuk kulit yang lebih jernih.",
@@ -1729,6 +1730,7 @@
             name: "Daily Moisturizing Sunscreen SPF 50",
             category: "sunscreen",
             badge: "UV Shield",
+            keywords: ["daily", "sunscreen"],
             img: "glad2glow daily moisturizing sunscreen spf 50.jpg",
             altImgs: ["Glad2Glow daily moisturizing sunscreen spf 50.jpg"],
             desc: "Pelindung matahari harian SPF 50 PA+++ yang melindungi kulit daripada sinaran UVA/UVB sambil mengekalkan kelembapan tanpa whitecast.",
@@ -1744,6 +1746,7 @@
             name: "Sheer UV Defense Milk SPF 50+",
             category: "sunscreen",
             badge: "Premium UV",
+            keywords: ["mary kay", "sheer"],
             img: "mary kay sheer uv defense milk spf 50.jpg",
             altImgs: ["Mary Kay sheer uv defense milk spf 50.jpg"],
             desc: "Susu pelindung UV berprestasi tinggi SPF 50+/PA+++ dengan kemasan halus bak sutera untuk perlindungan maksimum daripada penuaan pramatang.",
@@ -1759,6 +1762,7 @@
             name: "Squirt Plumping Gloss Stick",
             category: "cleanser",
             badge: "Trending",
+            keywords: ["squirt", "plumping"],
             img: "m.a.c cosmetics squirt plumping gloss stick.jpg",
             altImgs: ["M.A.C Cosmetics squirt plumping gloss stick.jpg"],
             desc: "Gincu gloss berkhasiat yang mencair di bibir dengan kilauan kaca menawan, memberi kesan bibir lebih mungil, lembut dan terhidrat.",
@@ -1774,6 +1778,7 @@
             name: "The Age Support Set (Regimen)",
             category: "sunscreen",
             badge: "Clinical Set",
+            keywords: ["ordinary", "age support"],
             img: "the ordinary The Age Support Set (Regimen).jpg",
             altImgs: ["The Ordinary The Age Support Set (Regimen).jpg"],
             desc: "Set penjagaan anti-penuaan lengkap merangkumi Multi-Peptide + HA Serum, Multi-Peptide Eye Serum, dan Natural Moisturizing Factors.",
@@ -1789,6 +1794,7 @@
             name: "Milk Amino Acids Brightening Cleanser",
             category: "cleanser",
             badge: "Daily Wash",
+            keywords: ["milk", "amino"],
             img: "glad2lad milk amino acids brightening cleanser.jpg",
             altImgs: ["glad2glow milk amino acids brightening cleanser.jpg"],
             desc: "Pencuci muka lembut dengan asid amino susu yang membersihkan kotoran secara mendalam tanpa mengeringkan lembapan semula jadi kulit.",
@@ -1804,6 +1810,7 @@
             name: "Hot Blue For Men (100ml)",
             category: "perfume",
             badge: "For Men",
+            keywords: ["hot blue"],
             img: "Eau De Parfum Hot Blue For Men (100ml).jpg",
             altImgs: ["Eau De Parfum hot blue for men (100ml).jpg", "Eau De Parfum Hot Blue For Men.jpg", "eau de parfum hot blue for men (100ml).jpg", "831.jpg"],
             desc: "Haruman maskulin segar dan berkarisma dalam botol 100ml yang dirumus untuk ketahanan aroma sepanjang hari.",
@@ -1819,6 +1826,7 @@
             name: "Lovely Lassie & Victorious Edition",
             category: "perfume",
             badge: "Exclusive",
+            keywords: ["lovely lassie", "victorious"],
             img: "Eau De Parfum Lovely Lassie & Victorious Edition.jpg",
             altImgs: ["Eau De Parfum lovely lassie & victorious edition.jpg", "Eau De Parfum Lovely Lassie & Victorious.jpg", "836.jpg"],
             desc: "Gandingan wangian mewah dengan kemasan botol kaca elegan yang memancarkan aura eksklusif dan memikat.",
@@ -1834,6 +1842,7 @@
             name: "Nice Women Eau De Parfum",
             category: "perfume",
             badge: "For Women",
+            keywords: ["nice women"],
             img: "Eau De Parfum Nice Women Eau De Parfum.jpg",
             altImgs: ["Eau De Parfum nice women eau de parfum.jpg", "Eau De Parfum Nice Women.jpg", "832.jpg"],
             desc: "Wangian wanita berona keemasan dengan haruman flora lembut yang menyerlahkan keanggunan dan keyakinan diri.",
@@ -1849,6 +1858,7 @@
             name: "Boos Black Boos For Men (50ml)",
             category: "perfume",
             badge: "Bold Scent",
+            keywords: ["boos black"],
             img: "Eau De Parfum Boos Black Boos For Men (50ml).jpg",
             altImgs: ["Eau De Parfum boos black boos for men (50ml).jpg", "eau de parfum boos black boos for men (50ml).jpg", "Eau De Parfum Boos Black Boos For Men.jpg", "835.jpg"],
             desc: "Haruman lelaki berani dan maskulin dalam botol hitam matte 50ml yang memberi kesan aura mewah dan tegas.",
@@ -1864,6 +1874,7 @@
             name: "Victorious & Lovely Lassie Noir (50ml)",
             category: "perfume",
             badge: "Signature",
+            keywords: ["victorious", "noir"],
             img: "Eau De Parfum Victorious & Lovely Lassie Noir (50ml).jpg",
             altImgs: ["Eau De Parfum victorious & lovely lassie noir (50ml).jpg", "Eau De Parfum Victorious & Lovely Lassie Noir.jpg", "834.jpg"],
             desc: "Edisi khas Noir dengan kemasan hitam perak dan emas yang menggabungkan karakter elegan serta ketahanan aroma tinggi.",
@@ -1879,6 +1890,7 @@
             name: "Love's Fresh For Women",
             category: "perfume",
             badge: "Fresh Floral",
+            keywords: ["love's fresh", "loves fresh"],
             img: "Eau De Parfum Love's Fresh For Women.jpg",
             altImgs: ["Eau De Parfum love's fresh for women.jpg", "Eau De Parfum Love's Fresh For Women .jpg", "833.jpg"],
             desc: "Haruman wanita segar berinspirasikan bunga-bungaan lembut yang memberi kesegaran ceria sepanjang hari.",
@@ -1894,6 +1906,7 @@
             name: "Rose Silky Shower Cream (1000ml)",
             category: "bodycare",
             badge: "Hydra Active",
+            keywords: ["rose silky"],
             img: "Guardian rose silky shower cream (1000ml).jpg",
             altImgs: ["Guardian rose silky shower cream.jpg", "Guardian Rose Silky Shower Cream (1000ml).jpg", "860.jpg"],
             desc: "Krim mandian lembut berharuman bunga ros dengan formula Hydra Active yang membersihkan sambil mengekalkan kelembutan kulit sehalus sutera.",
@@ -1909,6 +1922,7 @@
             name: "Grapefruit Refreshing Body Wash",
             category: "bodycare",
             badge: "Refreshing",
+            keywords: ["grapefruit"],
             img: "Guardian grapefruit refreshing body wash.jpg",
             altImgs: ["Guardian Grapefruit Refreshing Body Wash.jpg", "Guardian grapefruit refreshing body wash .jpg", "857.jpg"],
             desc: "Gel mandian menyegarkan dengan ekstrak limau gedang (Grapefruit) yang membangkitkan kesegaran tubuh selepas seharian beraktiviti.",
@@ -1924,6 +1938,7 @@
             name: "Goat's Milk Shower Cream (1200ml)",
             category: "bodycare",
             badge: "Nourishing",
+            keywords: ["goat's milk", "goats milk"],
             img: "GuardianEssential goat's milk shower cream (1200ml).jpg",
             altImgs: ["GuardianEssential goat's milk shower cream.jpg", "Guardian Essential goat's milk shower cream (1200ml).jpg", "856.jpg"],
             desc: "Krim mandian susu kambing berkhasiat tinggi dalam pek 1200ml untuk membelai kulit agar kekal lembut, anjal dan sihat berseri.",
@@ -1939,6 +1954,7 @@
             name: "Acne Essence Toner",
             category: "cleanser",
             badge: "Acne Care",
+            keywords: ["acne essence"],
             img: "Scarlett acne essence toner.jpg",
             altImgs: ["Scarlett Acne Essence Toner.jpg", "855.jpg"],
             desc: "Essence toner ringan yang membantu menenangkan kulit berjerawat, mengawal lebihan sebum serta mempersiapkan kulit menyerap serum dengan lebih baik.",
@@ -1954,6 +1970,7 @@
             name: "Jolly Body Serum Ceramide Hyalur (500ml)",
             category: "bodycare",
             badge: "Body Serum",
+            keywords: ["jolly body"],
             img: "Scarlett jolly body serum ceramide hyalur (500ml).jpg",
             altImgs: ["Scarlett jolly body serum ceramide hyalur.jpg", "Scarlett Jolly Body Serum Ceramide Hyalur (500ml).jpg", "854.jpg"],
             desc: "Serum badan berprestasi tinggi dengan Ceramide dan Hyaluronic Acid untuk mencerahkan tona kulit badan serta mengunci kelembapan mendalam.",
@@ -1969,6 +1986,7 @@
             name: "Intensive Care Dry Skin Repair (400ml)",
             category: "bodycare",
             badge: "72h Moisture",
+            keywords: ["dry skin"],
             img: "Vaseline intensive care dry skin repair (400ml).jpg",
             altImgs: ["Vaseline intensive care dry skin repair.jpg", "Vaseline Intensive Care Dry Skin Repair (400ml).jpg", "853.jpg"],
             desc: "Losyen pemulihan kulit kering dengan ekstrak oat tulen yang memberi kelembapan mendalam sehingga 72 jam untuk kulit halus sihat.",
@@ -1984,6 +2002,7 @@
             name: "Cooling Aloe Moisturizing Lotion",
             category: "bodycare",
             badge: "Soothing Aloe",
+            keywords: ["cooling aloe"],
             img: "Herbal care cooling aloe moisturizing lotion.jpg",
             altImgs: ["Herbal Care cooling aloe moisturizing lotion.jpg", "Herbal care cooling aloe moisturizing lotion .jpg", "849.jpg"],
             desc: "Losyen pelembap Aloe Vera dengan kesan dingin yang menyamankan kulit selepas terdedah kepada panas matahari.",
@@ -1999,6 +2018,7 @@
             name: "Nourishing Vitamin E Lotion (350ml)",
             category: "bodycare",
             badge: "Vitamin E",
+            keywords: ["vitamin e"],
             img: "Smerl nourishing vitamin E lotion (350ml).jpg",
             altImgs: ["Smerl nourishing vitamin E lotion.jpg", "Smerl nourishing vitamin e lotion (350ml).jpg", "850.jpg"],
             desc: "Losyen badan kaya dengan Vitamin E yang membantu melindungi keanjalan kulit serta menjadikannya lembut, halus dan berseri.",
@@ -2014,6 +2034,7 @@
             name: "Intensive Care Aloe Soothe (320ml)",
             category: "bodycare",
             badge: "Pro-Ceramide",
+            keywords: ["aloe soothe"],
             img: "Vaseline intensive care aloe soothe (320ml).jpg",
             altImgs: ["Vaseline intensive care aloe soothe.jpg", "Vaseline Intensive Care Aloe Soothe (320ml).jpg", "851.jpg"],
             desc: "Losyen badan dengan Aloe Vera dan teknologi Pro-Ceramide untuk menenangkan kulit kering serta mengekalkan hidrasi sehingga 48 jam.",
@@ -2029,6 +2050,7 @@
             name: "Intensive Care Cocoa Glow (400ml)",
             category: "bodycare",
             badge: "Healthy Glow",
+            keywords: ["cocoa glow"],
             img: "Vaseline intensive care cocoa glow (400ml).jpg",
             altImgs: ["Vaseline intensive care cocoa glow.jpg", "Vaseline Intensive Care Cocoa Glow (400ml).jpg", "852.jpg"],
             desc: "Losyen badan dengan mentega koko tulen yang menyuburkan kulit kusam agar tampil lebih bercahaya, lembut dan gebu sepanjang hari.",
@@ -2044,6 +2066,7 @@
             name: "Intensive Care Deep Restore Lotion (400ml)",
             category: "bodycare",
             badge: "Deep Restore",
+            keywords: ["deep restore"],
             img: "Vaseline intensive care deep restore lotion (400ml).jpg",
             altImgs: ["Vaseline intensive care deep restore lotion.jpg", "Vaseline intensive care deep restore (400ml).jpg", "848.jpg"],
             desc: "Losyen pelembap harian dengan titisan mikro Vaseline Jelly yang meresap jauh ke dalam lapisan kulit untuk memulihkan kulit kering secara berkesan.",
@@ -2059,6 +2082,7 @@
             name: "Bidara Leafs Botanical Body Soap",
             category: "bodycare",
             badge: "Herbal Care",
+            keywords: ["bidara", "biadara"],
             img: "Kilei biadara leafs botanical body soap.jpg",
             altImgs: ["Kilei bidara leafs botanical body soap.jpg", "Kilei biadara leafs botanical body soap .jpg", "843.jpg"],
             desc: "Sabun mandian cecair berasaskan ekstrak daun bidara semula jadi untuk menyegarkan tubuh, menenangkan kulit serta memberi keselesaan selepas seharian beraktiviti.",
@@ -2074,6 +2098,7 @@
             name: "Bath+Club Botanical Body Bath",
             category: "bodycare",
             badge: "Floral Scent",
+            keywords: ["skin cottage", "bath+club"],
             img: "Skin cottage bath+club botanical body bath.jpg",
             altImgs: ["Skin Cottage bath+club botanical body bath.jpg", "Skin cottage bath+club botanical body bath .jpg", "841.jpg"],
             desc: "Gel mandian mewah dengan haruman bunga-bungaan tropika yang membelai kulit agar kekal halus, segar dan harum sepanjang hari.",
@@ -2089,6 +2114,7 @@
             name: "Gentle Baby & Family Bath Collection",
             category: "bodycare",
             badge: "Mild & Gentle",
+            keywords: ["johnson"],
             img: "Johnson's gentle baby & family bath collection.jpg",
             altImgs: ["Johnson's gentle baby & family bath.jpg", "Johnson's Gentle Baby & Family Bath Collection.jpg", "846.jpg"],
             desc: "Rangkaian mandian lembut pilihan keluarga (Peach, Milk & Rice, dan Moisture) dengan formula pH seimbang yang selamat untuk kulit sensitif.",
@@ -2104,6 +2130,7 @@
             name: "Love My Skin Freesia Botanical Body Wash",
             category: "bodycare",
             badge: "Botanical",
+            keywords: ["freesia", "watsons"],
             img: "Watsons love my skin freesia botanical body wash.jpg",
             altImgs: ["Watsons love my skin freesia botanical.jpg", "Watsons Love My Skin Freesia Botanical Body Wash.jpg", "839.jpg"],
             desc: "Gel mandian botani berharuman bunga Freesia yang menyegarkan sambil mengekalkan kelembapan semula jadi kulit anda.",
@@ -2119,6 +2146,7 @@
             name: "Antibacterial Cool Mint Hand Wash (500ml)",
             category: "bodycare",
             badge: "99.9% Protection",
+            keywords: ["cool mint", "hand wash"],
             img: "Guardian antibacterial cool mint hand wash (500ml).jpg",
             altImgs: ["Guardian antibacterial cool mint hand wash.jpg", "Guardian Antibacterial Cool Mint Hand Wash (500ml).jpg", "838.jpg"],
             desc: "Pencuci tangan antibakteria dengan ekstrak pudina segar yang menghapuskan 99.9% kuman sambil menjaga kelembutan kulit tangan.",
@@ -2131,8 +2159,50 @@
     ];
 
     /* ==========================================================================
-       SMART IMAGE RESOLVER (AUTO-TRIES ALTERNATE CASING / GITHUB FILENAMES)
+       SMART GITHUB REPO FILE SCANNER & IMAGE RESOLVER
        ========================================================================== */
+    let repoImageFiles = [];
+
+    // Fetch live list of image files directly from GitHub repository API so any renamed file auto-matches!
+    async function syncRepoImages() {
+        try {
+            const res = await fetch('https://api.github.com/repos/aydashop19/ayda-shop/contents/');
+            if (!res.ok) return;
+            const files = await res.json();
+            if (Array.isArray(files)) {
+                repoImageFiles = files
+                    .filter(f => f.type === 'file' && /\.(jpg|jpeg|png|webp)$/i.test(f.name))
+                    .map(f => f.name);
+
+                // Automatically map any matching repo file by keyword
+                products.forEach(p => {
+                    if (p.keywords && p.keywords.length > 0) {
+                        const match = repoImageFiles.find(fname => {
+                            const lower = fname.toLowerCase();
+                            return p.keywords.some(kw => lower.includes(kw.toLowerCase()));
+                        });
+                        if (match && !p.altImgs.includes(match)) {
+                            p.altImgs.unshift(match);
+                        }
+                    }
+                });
+
+                // Refresh currently displayed images if any showed placeholder
+                document.querySelectorAll('img[data-pid]').forEach(imgEl => {
+                    const pid = parseInt(imgEl.dataset.pid, 10);
+                    const prod = products.find(item => item.id === pid);
+                    if (prod && imgEl.src.includes('placehold.co') && prod.altImgs.length > 0) {
+                        imgEl.dataset.tried = "0";
+                        imgEl.onerror = () => handleImgFallback(imgEl, pid);
+                        imgEl.src = prod.altImgs[0];
+                    }
+                });
+            }
+        } catch (err) {
+            // Silent fallback if offline
+        }
+    }
+
     function handleImgFallback(imgEl, productId) {
         const product = products.find(p => p.id === productId);
         const tried = parseInt(imgEl.dataset.tried || "0", 10);
@@ -2167,7 +2237,7 @@
             card.innerHTML = `
                 <div class="product-img-wrap">
                     <span class="product-badge">${item.badge}</span>
-                    <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="handleImgFallback(this, ${item.id})">
+                    <img data-pid="${item.id}" src="${item.img}" alt="${item.name}" loading="lazy" onerror="handleImgFallback(this, ${item.id})">
                 </div>
                 <div class="product-info">
                     <div>
@@ -2193,8 +2263,9 @@
         }
     });
 
-    // Initial render
+    // Initial render + live GitHub image auto-discovery
     renderProducts('all');
+    syncRepoImages();
 
     /* ==========================================================================
        3. PRODUCT MODAL INTERACTION
@@ -2375,7 +2446,6 @@
         });
     }
 
-    // Trigger counter animation safely on load or scroll
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
