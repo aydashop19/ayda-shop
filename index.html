@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Lucide Icons CDN for crisp vector icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- QRCode.js CDN for Real Scannable QR Code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <style>
         /* ==========================================================================
@@ -201,7 +203,7 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
-        /* Primary Brand & Owner Avatar Showcase (Gambar Pertama: 466.jpg) */
+        /* Primary Brand & Owner Avatar Showcase (Gambar Profil Utama: 1996.jpg) */
         .avatar-wrapper {
             position: relative;
             width: 146px;
@@ -1166,6 +1168,24 @@
             height: 16px;
         }
 
+        /* Real QR Box Styling */
+        .qr-frame {
+            background: #FFFFFF;
+            padding: 16px;
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-card);
+        }
+
+        #realQrContainer img, #realQrContainer canvas {
+            display: block;
+            border-radius: 8px;
+        }
+
         /* Toast Notification */
         .toast {
             position: fixed;
@@ -1217,7 +1237,7 @@
     </header>
 
     <!-- ======================================================================
-         HERO PROFILE SECTION (GAMBAR PERTAMA + IDENTITI MARKETING EXECUTIVE)
+         HERO PROFILE SECTION (GAMBAR PROFIL + IDENTITI MARKETING EXECUTIVE)
          ====================================================================== -->
     <section class="hero-section">
         <div class="hero-card reveal active">
@@ -1226,7 +1246,7 @@
                 <span>Available for Consultation & Order</span>
             </div>
 
-            <!-- Gambar Profil Utama (1996.jpg) sebagai Identiti Pemilik & Jenama -->
+            <!-- Gambar Profil Utama (1996.jpg) -->
             <div class="avatar-wrapper">
                 <div class="avatar-ring"></div>
                 <img src="1996.jpg" alt="Ayda Shop - Marketing Executive" class="avatar-img" onerror="this.src='https://placehold.co/300x300/FAF6F0/1B5459?text=AYDA+SHOP'">
@@ -1341,7 +1361,7 @@
 
         <!-- Product Grid -->
         <div class="product-grid" id="productGrid">
-            <!-- Injected dynamically via Vanilla JS for clean data management & popup binding -->
+            <!-- Injected dynamically via Vanilla JS -->
         </div>
     </section>
 
@@ -1616,7 +1636,7 @@
 </div>
 
 <!-- ==========================================================================
-     QR CODE SHARE MODAL (FOR INSTANT SCANNING)
+     REAL SCANNABLE QR CODE SHARE MODAL
      ========================================================================== -->
 <div class="modal-backdrop" id="qrModal">
     <div class="modal-sheet" style="max-width: 360px; text-align: center; padding: 24px;">
@@ -1627,21 +1647,22 @@
         </div>
         <span class="section-tag">Imbas Untuk Kongsi</span>
         <h3 style="font-size: 1.35rem; margin-bottom: 6px;">Kod QR Ayda Shop</h3>
-        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 18px;">
+        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px;">
             Imbas kamera telefon anda untuk membuka kad bisnes digital ini serta-merta.
         </p>
-        <div style="background: #FFF; padding: 16px; border-radius: 18px; border: 1px solid var(--border-color); display: inline-block; margin-bottom: 18px;">
-            <svg width="170" height="170" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100" height="100" rx="8" fill="#FFFFFF"/>
-                <path fill="#1B5459" d="M10 10h24v24H10V10zm4 4v16h16V14H14zm4 4h8v8h-8v-8zm48-8h24v24H66V10zm4 4v16h16V14H70zm4 4h8v8h-8v-8zM10 66h24v24H10V66zm4 4v16h16V70H14zm4 4h8v8h-8v-8z"/>
-                <path fill="#161413" d="M40 12h6v6h-6v-6zm12 0h6v12h-6V12zm-12 12h6v6h-6v-6zm6 6h6v6h-6v-6zm12 6h6v6h-6v-6zM12 40h12v6H12v-6zm18 0h6v12h-6V40zm12 6h12v6H42v-6zm18-6h6v12h-6V40zm12 0h16v6H72v-6zm6 12h10v6H78v-6zM40 58h6v12h-6V58zm12 6h12v6H52v-6zm18 0h6v18h-6V64zm12 6h6v12h-6V70zM40 76h12v6H40v-6zm18 8h12v6H58v-6zm-18 6h6v4h-6v-4z"/>
-                <circle cx="50" cy="50" r="8" fill="#C69B53"/>
-            </svg>
+        <div class="qr-frame">
+            <div id="realQrContainer"></div>
         </div>
-        <button class="btn-primary" style="width: 100%;" onclick="copyText(window.location.href, 'Pautan kad digital disalin!')">
-            <i data-lucide="link" size="17"></i>
-            <span>Salin Pautan Kad</span>
-        </button>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <button class="btn-primary" style="width: 100%;" onclick="copyText('https://aydashop19.github.io/ayda-shop/', 'Pautan kad digital disalin!')">
+                <i data-lucide="link" size="17"></i>
+                <span>Salin Pautan Kad</span>
+            </button>
+            <button class="btn-secondary" style="width: 100%;" id="downloadQrBtn">
+                <i data-lucide="download" size="16"></i>
+                <span>Simpan Gambar Kod QR</span>
+            </button>
+        </div>
     </div>
 </div>
 
@@ -2163,7 +2184,6 @@
        ========================================================================== */
     let repoImageFiles = [];
 
-    // Fetch live list of image files directly from GitHub repository API so any filename auto-matches!
     async function syncRepoImages() {
         try {
             const res = await fetch('https://api.github.com/repos/aydashop19/ayda-shop/contents/');
@@ -2174,7 +2194,6 @@
                     .filter(f => f.type === 'file' && /\.(jpg|jpeg|png|webp)$/i.test(f.name))
                     .map(f => f.name);
 
-                // Automatically map exact repo filename by keyword
                 products.forEach(p => {
                     if (p.keywords && p.keywords.length > 0) {
                         const match = repoImageFiles.find(fname => {
@@ -2190,7 +2209,6 @@
                     }
                 });
 
-                // Force-update all displayed images with exact repo filenames
                 document.querySelectorAll('img[data-pid]').forEach(imgEl => {
                     const pid = parseInt(imgEl.dataset.pid, 10);
                     const prod = products.find(item => item.id === pid);
@@ -2269,7 +2287,6 @@
         }
     });
 
-    // Initial render + live GitHub image auto-discovery
     renderProducts('all');
     syncRepoImages();
 
@@ -2322,6 +2339,7 @@
             "TITLE:Marketing Executive",
             "TEL;TYPE=CELL,VOICE:+601174717796",
             "EMAIL;TYPE=PREF,INTERNET:Aydashop19@gmail.com",
+            "URL:https://aydashop19.github.io/ayda-shop/",
             "NOTE:Beauty & Cosmetics Specialist | Skincare Consultation & Marketing",
             "END:VCARD"
         ].join("\n");
@@ -2343,20 +2361,76 @@
     document.getElementById('stickySaveBtn').addEventListener('click', downloadVCard);
 
     /* ==========================================================================
-       5. SHARE BUSINESS CARD & QR MODAL
+       5. REAL SCANNABLE QR CODE GENERATOR & SHARE MODAL
        ========================================================================== */
     const qrModal = document.getElementById('qrModal');
-    document.getElementById('openQrBtn').addEventListener('click', () => qrModal.classList.add('show'));
+    const cardUrl = 'https://aydashop19.github.io/ayda-shop/';
+    let qrGenerated = false;
+
+    function generateRealQrCode() {
+        const container = document.getElementById('realQrContainer');
+        if (!container || qrGenerated) return;
+        container.innerHTML = '';
+
+        if (window.QRCode) {
+            new QRCode(container, {
+                text: cardUrl,
+                width: 190,
+                height: 190,
+                colorDark: "#123B3F",
+                colorLight: "#FFFFFF",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            qrGenerated = true;
+        } else {
+            // Fallback API if offline/blocked script
+            const img = document.createElement('img');
+            img.src = `https://api.qrserver.com/v1/create-qr-code/?size=190x190&color=123B3F&bgcolor=FFFFFF&data=${encodeURIComponent(cardUrl)}`;
+            img.alt = "Kod QR Ayda Shop";
+            img.width = 190;
+            img.height = 190;
+            container.appendChild(img);
+            qrGenerated = true;
+        }
+    }
+
+    document.getElementById('openQrBtn').addEventListener('click', () => {
+        generateRealQrCode();
+        qrModal.classList.add('show');
+    });
+
     document.getElementById('closeQrModal').addEventListener('click', () => qrModal.classList.remove('show'));
     qrModal.addEventListener('click', (e) => {
         if (e.target === qrModal) qrModal.classList.remove('show');
+    });
+
+    document.getElementById('downloadQrBtn').addEventListener('click', () => {
+        const canvas = document.querySelector('#realQrContainer canvas');
+        const img = document.querySelector('#realQrContainer img');
+        let dataUrl = '';
+
+        if (canvas) {
+            dataUrl = canvas.toDataURL('image/png');
+        } else if (img && img.src) {
+            dataUrl = img.src;
+        }
+
+        if (dataUrl) {
+            const link = document.createElement('a');
+            link.href = dataUrl;
+            link.download = 'Kod_QR_Ayda_Shop.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast('Gambar Kod QR dimuat turun!');
+        }
     });
 
     document.getElementById('shareCardBtn').addEventListener('click', async () => {
         const shareData = {
             title: 'Ayda Shop | Marketing Executive',
             text: 'Terokai koleksi produk kecantikan tulen & konsultasi kulit bersama Ayda Shop.',
-            url: window.location.href
+            url: cardUrl
         };
 
         if (navigator.share) {
@@ -2366,7 +2440,7 @@
                 // User cancelled share
             }
         } else {
-            copyText(window.location.href, 'Pautan kad digital disalin!');
+            copyText(cardUrl, 'Pautan kad digital disalin!');
         }
     });
 
@@ -2449,24 +2523,4 @@
                 }
             }
             requestAnimationFrame(update);
-        });
-    }
-
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    if (entry.target.querySelector('.stats-grid')) {
-                        animateCounters();
-                    }
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    }
-    setTimeout(animateCounters, 600);
-</script>
-</body>
-</html>
-```
+        })
