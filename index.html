@@ -4,19 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayda Shop | Marketing Executive — Beauty & Cosmetics</title>
-    <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons CDN for crisp vector icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- QRCode.js CDN for Real Scannable QR Code -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
     <style>
-        /* ==========================================================================
-           1. CSS VARIABLES & THEME SYSTEM (2026 LUXURY COSMETIC PALETTE)
-           ========================================================================== */
         :root {
             --bg-primary: #FAF7F5;
             --bg-secondary: #FFFFFF;
@@ -24,33 +15,23 @@
             --text-primary: #161413;
             --text-secondary: #5C5550;
             --text-muted: #8E857E;
-            --brand-teal: #1B5459;      /* Extracted from Ayda Shop Logo */
+            --brand-teal: #1B5459;
             --brand-teal-dark: #123B3F;
-            --brand-gold: #C69B53;      /* Extracted from Ayda Shop Logo */
+            --brand-gold: #C69B53;
             --brand-gold-light: #E8D2A6;
-            --brand-blush: #E8A598;     /* Extracted from Ayda Shop Logo */
+            --brand-blush: #E8A598;
             --border-color: rgba(22, 20, 19, 0.08);
-            --glass-bg: rgba(255, 255, 255, 0.78);
+            --glass-bg: rgba(255, 255, 255, 0.85);
             --shadow-soft: 0 12px 32px -4px rgba(27, 84, 89, 0.08);
             --shadow-card: 0 8px 24px -6px rgba(22, 20, 19, 0.06);
             --radius-xl: 24px;
             --radius-lg: 18px;
             --radius-md: 12px;
-            --transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            --transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; font-size: 16px; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #EAE4DF;
@@ -61,7 +42,6 @@
             justify-content: center;
         }
 
-        /* Mobile-First App Container simulating a sleek vertical landing card on desktop */
         .app-shell {
             width: 100%;
             max-width: 480px;
@@ -69,98 +49,42 @@
             min-height: 100vh;
             position: relative;
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
-            padding-bottom: 96px; /* Space for sticky bottom CTA */
+            padding-bottom: 96px;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .font-serif {
-            font-family: 'Playfair Display', serif;
-            letter-spacing: -0.01em;
-        }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; letter-spacing: -0.01em; }
+        svg.ico { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
-        /* ==========================================================================
-           2. TOP FLOATING NAVIGATION & PROGRESS BAR
-           ========================================================================== */
+        /* TOP BAR */
         .top-bar {
-            position: sticky;
-            top: 0;
-            z-index: 50;
+            position: sticky; top: 0; z-index: 50;
             background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-color);
             padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            display: flex; align-items: center; justify-content: space-between;
         }
-
-        .top-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .top-brand img {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1.5px solid var(--brand-gold);
-        }
-
-        .top-brand span {
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--brand-teal);
-            letter-spacing: 0.04em;
-        }
-
-        .top-actions {
-            display: flex;
-            gap: 8px;
-        }
-
+        .top-brand { display: flex; align-items: center; gap: 10px; }
+        .top-brand img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--brand-gold); }
+        .top-brand span { font-weight: 700; font-size: 0.9rem; color: var(--brand-teal); letter-spacing: 0.04em; }
+        .top-actions { display: flex; gap: 8px; }
         .icon-btn {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
+            width: 38px; height: 38px; border-radius: 50%;
             border: 1px solid var(--border-color);
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
+            background: var(--bg-secondary); color: var(--text-primary);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: var(--transition);
         }
+        .icon-btn:hover, .icon-btn:active { background: var(--brand-teal); color: #FFFFFF; transform: scale(1.06); }
+        .scroll-progress { position: absolute; bottom: 0; left: 0; height: 2.5px; background: linear-gradient(90deg, var(--brand-teal), var(--brand-gold)); width: 0%; }
 
-        .icon-btn:hover, .icon-btn:active {
-            background: var(--brand-teal);
-            color: #FFFFFF;
-            transform: scale(1.06);
-        }
-
-        .scroll-progress {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 2.5px;
-            background: linear-gradient(90deg, var(--brand-teal), var(--brand-gold));
-            width: 0%;
-            transition: width 0.1s linear;
-        }
-
-        /* ==========================================================================
-           3. HERO PROFILE SECTION (GAMBAR PERTAMA + IDENTITI)
-           ========================================================================== */
+        /* HERO SECTION */
         .hero-section {
-            position: relative;
             padding: 24px 20px 32px;
             background: radial-gradient(circle at top right, rgba(198, 155, 83, 0.16), transparent 60%),
                         radial-gradient(circle at bottom left, rgba(27, 84, 89, 0.08), transparent 60%);
         }
-
         .hero-card {
             background: var(--bg-secondary);
             border-radius: var(--radius-xl);
@@ -168,1089 +92,244 @@
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-soft);
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(27, 84, 89, 0.08);
-            color: var(--brand-teal);
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 6px 14px;
-            border-radius: 99px;
-            margin-bottom: 18px;
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(27, 84, 89, 0.08); color: var(--brand-teal);
+            font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+            padding: 6px 14px; border-radius: 99px; margin-bottom: 18px;
         }
-
-        .pulse-dot {
-            width: 7px;
-            height: 7px;
-            background: #10B981;
-            border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-            animation: pulseGreen 2s infinite;
-        }
-
+        .pulse-dot { width: 7px; height: 7px; background: #10B981; border-radius: 50%; animation: pulseGreen 2s infinite; }
         @keyframes pulseGreen {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
-
-        /* Primary Brand & Owner Avatar Showcase (Gambar Profil Utama: 1996.jpg) */
-        .avatar-wrapper {
-            position: relative;
-            width: 146px;
-            height: 146px;
-            margin: 0 auto 18px;
-        }
-
+        .avatar-wrapper { position: relative; width: 146px; height: 146px; margin: 0 auto 18px; }
         .avatar-ring {
-            position: absolute;
-            inset: -6px;
-            border-radius: 50%;
+            position: absolute; inset: -6px; border-radius: 50%;
             background: conic-gradient(from 45deg, var(--brand-gold), var(--brand-teal), var(--brand-blush), var(--brand-gold));
-            animation: spinSlow 14s linear infinite;
-            opacity: 0.85;
+            animation: spinSlow 14s linear infinite; opacity: 0.85;
         }
-
-        @keyframes spinSlow {
-            to { transform: rotate(360deg); }
-        }
-
+        @keyframes spinSlow { to { transform: rotate(360deg); } }
         .avatar-img {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--bg-secondary);
-            background: #FAF6F0;
-            z-index: 2;
+            position: relative; width: 100%; height: 100%; border-radius: 50%;
+            object-fit: cover; border: 4px solid var(--bg-secondary); background: #FAF6F0; z-index: 2;
         }
-
         .verified-seal {
-            position: absolute;
-            bottom: 4px;
-            right: 4px;
-            z-index: 3;
-            background: var(--brand-teal);
-            color: #FFF;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid var(--bg-secondary);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            position: absolute; bottom: 4px; right: 4px; z-index: 3;
+            background: var(--brand-teal); color: #FFF; width: 32px; height: 32px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            border: 3px solid var(--bg-secondary); box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
+        .hero-name { font-size: 1.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+        .hero-role { font-size: 0.92rem; font-weight: 600; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+        .hero-bio { font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 22px; padding: 0 6px; }
 
-        .hero-name {
-            font-size: 1.85rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-
-        .hero-role {
-            font-size: 0.92rem;
-            font-weight: 600;
-            color: var(--brand-gold);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 14px;
-        }
-
-        .hero-bio {
-            font-size: 0.92rem;
-            color: var(--text-secondary);
-            margin-bottom: 22px;
-            padding: 0 6px;
-        }
-
-        /* Primary CTA Grid */
-        .hero-cta-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 18px;
-        }
-
+        .hero-cta-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
         .btn-primary {
             grid-column: span 2;
             background: linear-gradient(135deg, var(--brand-teal), var(--brand-teal-dark));
-            color: #FFFFFF;
-            border: none;
-            padding: 15px 20px;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            cursor: pointer;
-            text-decoration: none;
-            box-shadow: 0 10px 20px -5px rgba(27, 84, 89, 0.35);
-            transition: var(--transition);
+            color: #FFFFFF; border: none; padding: 15px 20px; border-radius: var(--radius-md);
+            font-weight: 600; font-size: 0.95rem;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            cursor: pointer; text-decoration: none;
+            box-shadow: 0 10px 20px -5px rgba(27, 84, 89, 0.35); transition: var(--transition);
         }
-
-        .btn-primary:hover, .btn-primary:active {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 24px -5px rgba(27, 84, 89, 0.45);
-        }
-
+        .btn-primary:hover, .btn-primary:active { transform: translateY(-2px); }
         .btn-secondary {
-            background: var(--bg-accent-soft);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            padding: 12px 14px;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: var(--transition);
+            background: var(--bg-accent-soft); color: var(--text-primary);
+            border: 1px solid var(--border-color); padding: 12px 14px; border-radius: var(--radius-md);
+            font-weight: 600; font-size: 0.85rem;
+            display: flex; align-items: center; justify-content: center; gap: 7px;
+            cursor: pointer; text-decoration: none; transition: var(--transition);
         }
+        .btn-secondary:hover, .btn-secondary:active { background: var(--brand-gold); color: #FFFFFF; border-color: var(--brand-gold); }
 
-        .btn-secondary:hover, .btn-secondary:active {
-            background: var(--brand-gold);
-            color: #FFFFFF;
-            border-color: var(--brand-gold);
-        }
-
-        /* Quick Contact Pills */
-        .quick-contacts {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            padding-top: 16px;
-            border-top: 1px solid var(--border-color);
-        }
-
+        .quick-contacts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding-top: 16px; border-top: 1px solid var(--border-color); }
         .q-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            padding: 10px 4px;
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-            font-weight: 600;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
+            padding: 10px 4px; border-radius: var(--radius-md); text-decoration: none;
+            color: var(--text-secondary); font-size: 0.75rem; font-weight: 600;
+            background: transparent; border: none; cursor: pointer; transition: var(--transition);
         }
-
         .q-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: var(--bg-primary);
-            color: var(--brand-teal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
+            width: 40px; height: 40px; border-radius: 12px;
+            background: var(--bg-primary); color: var(--brand-teal);
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid var(--border-color); transition: var(--transition);
         }
+        .q-item:hover .q-icon { background: var(--brand-teal); color: #FFFFFF; transform: translateY(-2px); }
 
-        .q-item:hover .q-icon {
-            background: var(--brand-teal);
-            color: #FFFFFF;
-            transform: translateY(-2px);
-        }
+        /* SECTIONS */
+        .section { padding: 28px 20px; }
+        .section-header { margin-bottom: 20px; }
+        .section-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-gold); margin-bottom: 4px; }
+        .section-title { font-size: 1.55rem; font-weight: 700; color: var(--text-primary); line-height: 1.25; }
+        .section-subtitle { font-size: 0.88rem; color: var(--text-secondary); margin-top: 6px; }
 
-        /* ==========================================================================
-           4. SECTION COMMON STYLES & REVEAL ANIMATION
-           ========================================================================== */
-        .section {
-            padding: 28px 20px;
-        }
+        /* STATS */
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .stat-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 16px 10px; text-align: center; box-shadow: var(--shadow-card); }
+        .stat-number { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--brand-teal); display: block; line-height: 1.1; margin-bottom: 4px; }
+        .stat-label { font-size: 0.72rem; font-weight: 600; color: var(--text-secondary); line-height: 1.3; }
 
-        .section-header {
-            margin-bottom: 20px;
-        }
+        /* STORY */
+        .story-card { background: linear-gradient(145deg, var(--brand-teal), var(--brand-teal-dark)); color: #FFFFFF; border-radius: var(--radius-xl); padding: 24px 20px; position: relative; overflow: hidden; }
+        .story-quote { font-family: 'Playfair Display', serif; font-size: 1.22rem; font-style: italic; line-height: 1.45; margin-bottom: 14px; color: #FAF7F5; }
+        .story-text { font-size: 0.88rem; color: rgba(255, 255, 255, 0.86); margin-bottom: 18px; }
+        .story-highlights { display: flex; flex-wrap: wrap; gap: 8px; }
+        .pill-tag { background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--brand-gold-light); font-size: 0.74rem; font-weight: 600; padding: 5px 12px; border-radius: 99px; }
 
-        .section-tag {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--brand-gold);
-            margin-bottom: 4px;
-        }
-
-        .section-title {
-            font-size: 1.55rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.25;
-        }
-
-        .section-subtitle {
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-            margin-top: 6px;
-        }
-
-        .reveal {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        /* ==========================================================================
-           5. ANIMATED CREDIBILITY STATISTICS
-           ========================================================================== */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .stat-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 16px 10px;
-            text-align: center;
-            box-shadow: var(--shadow-card);
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--brand-teal);
-            display: block;
-            line-height: 1.1;
-            margin-bottom: 4px;
-        }
-
-        .stat-label {
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            line-height: 1.3;
-        }
-
-        /* ==========================================================================
-           6. EXECUTIVE STORY & BRAND ATMOSPHERE
-           ========================================================================== */
-        .story-card {
-            background: linear-gradient(145deg, var(--brand-teal), var(--brand-teal-dark));
-            color: #FFFFFF;
-            border-radius: var(--radius-xl);
-            padding: 24px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .story-card::after {
-            content: "";
-            position: absolute;
-            top: -40px;
-            right: -40px;
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(198, 155, 83, 0.35), transparent 70%);
-        }
-
-        .story-quote {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.22rem;
-            font-style: italic;
-            line-height: 1.45;
-            margin-bottom: 14px;
-            color: #FAF7F5;
-        }
-
-        .story-text {
-            font-size: 0.88rem;
-            color: rgba(255, 255, 255, 0.84);
-            margin-bottom: 18px;
-        }
-
-        .story-highlights {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .pill-tag {
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: var(--brand-gold-light);
-            font-size: 0.74rem;
-            font-weight: 600;
-            padding: 5px 12px;
-            border-radius: 99px;
-        }
-
-        /* ==========================================================================
-           7. SIGNATURE PRODUCTS SHOWCASE (FILTERABLE + POPUP MODAL)
-           ========================================================================== */
-        .filter-tabs {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding-bottom: 8px;
-            margin-bottom: 16px;
-            scrollbar-width: none;
-        }
-
-        .filter-tabs::-webkit-scrollbar {
-            display: none;
-        }
-
+        /* PRODUCTS */
+        .filter-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 16px; scrollbar-width: none; }
+        .filter-tabs::-webkit-scrollbar { display: none; }
         .tab-btn {
-            white-space: nowrap;
-            padding: 8px 16px;
-            border-radius: 99px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
+            white-space: nowrap; padding: 8px 16px; border-radius: 99px;
+            border: 1px solid var(--border-color); background: var(--bg-secondary);
+            color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: var(--transition);
         }
+        .tab-btn.active { background: var(--brand-teal); color: #FFFFFF; border-color: var(--brand-teal); }
 
-        .tab-btn.active {
-            background: var(--brand-teal);
-            color: #FFFFFF;
-            border-color: var(--brand-teal);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-        }
-
+        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
         .product-card {
-            background: var(--bg-secondary);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
+            background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-color);
+            overflow: hidden; box-shadow: var(--shadow-card); cursor: pointer; transition: var(--transition);
+            display: flex; flex-direction: column;
         }
-
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-soft);
-            border-color: var(--brand-gold);
-        }
-
-        .product-img-wrap {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 3 / 4;
-            background: #F4EFEA;
-            overflow: hidden;
-        }
-
-        .product-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .product-card:hover .product-img-wrap img {
-            transform: scale(1.06);
-        }
-
+        .product-card.hidden-card { display: none; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); border-color: var(--brand-gold); }
+        .product-img-wrap { position: relative; width: 100%; aspect-ratio: 3 / 4; background: #F4EFEA; overflow: hidden; }
+        .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .product-card:hover .product-img-wrap img { transform: scale(1.06); }
         .product-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(22, 20, 19, 0.78);
-            backdrop-filter: blur(6px);
-            color: #FFFFFF;
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding: 4px 9px;
-            border-radius: 6px;
+            position: absolute; top: 10px; left: 10px;
+            background: rgba(22, 20, 19, 0.78); backdrop-filter: blur(6px);
+            color: #FFFFFF; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+            padding: 4px 9px; border-radius: 6px; z-index: 2;
         }
+        .product-info { padding: 12px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-brand { font-size: 0.68rem; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.06em; }
+        .product-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.86rem; font-weight: 700; color: var(--text-primary); margin: 3px 0 8px; line-height: 1.3; }
+        .product-action { display: flex; align-items: center; justify-content: space-between; font-size: 0.76rem; font-weight: 700; color: var(--brand-teal); padding-top: 8px; border-top: 1px solid var(--border-color); }
 
-        .product-info {
-            padding: 12px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+        /* GALLERY */
+        .editorial-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .gallery-item { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 5; cursor: pointer; border: 1px solid var(--border-color); }
+        .gallery-item.featured-wide { grid-column: span 2; aspect-ratio: 16 / 10; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .gallery-caption { position: absolute; inset: auto 0 0 0; padding: 24px 14px 12px; background: linear-gradient(to top, rgba(22, 20, 19, 0.85), transparent); color: #FFFFFF; }
+        .gallery-caption h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.84rem; font-weight: 700; }
+        .gallery-caption p { font-size: 0.72rem; color: rgba(255, 255, 255, 0.85); }
 
-        .product-brand {
-            font-size: 0.68rem;
-            font-weight: 700;
-            color: var(--brand-gold);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
+        /* SERVICES */
+        .service-list { display: flex; flex-direction: column; gap: 12px; }
+        .service-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 16px; display: flex; align-items: flex-start; gap: 14px; box-shadow: var(--shadow-card); }
+        .service-icon { width: 44px; height: 44px; min-width: 44px; border-radius: 12px; background: rgba(27, 84, 89, 0.08); color: var(--brand-teal); display: flex; align-items: center; justify-content: center; }
+        .service-content h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+        .service-content p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.45; }
 
-        .product-name {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.86rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin: 3px 0 8px;
-            line-height: 1.3;
-        }
+        /* TESTIMONIALS */
+        .testimonial-track { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; scrollbar-width: none; }
+        .testimonial-track::-webkit-scrollbar { display: none; }
+        .testimonial-card { min-width: 85%; scroll-snap-align: start; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 18px; box-shadow: var(--shadow-card); }
+        .stars { color: #F59E0B; display: flex; gap: 2px; margin-bottom: 10px; font-size: 0.9rem; }
+        .review-text { font-size: 0.86rem; color: var(--text-primary); margin-bottom: 14px; font-style: italic; }
+        .reviewer { display: flex; align-items: center; gap: 10px; }
+        .reviewer-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--brand-teal); color: #FFF; font-weight: 700; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+        .reviewer-meta strong { display: block; font-size: 0.82rem; }
+        .reviewer-meta span { font-size: 0.72rem; color: var(--text-muted); }
+        .social-banner { margin-top: 16px; background: var(--bg-accent-soft); border-radius: var(--radius-lg); padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--border-color); gap: 10px; }
+        .social-banner-text strong { display: block; font-size: 0.86rem; }
+        .social-banner-text span { font-size: 0.76rem; color: var(--text-secondary); }
 
-        .product-action {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 0.76rem;
-            font-weight: 700;
-            color: var(--brand-teal);
-            padding-top: 8px;
-            border-top: 1px solid var(--border-color);
-        }
+        /* FAQ */
+        .faq-list { display: flex; flex-direction: column; gap: 10px; }
+        .faq-item { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; }
+        .faq-question { width: 100%; padding: 15px 16px; background: transparent; border: none; display: flex; align-items: center; justify-content: space-between; text-align: left; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--text-primary); cursor: pointer; gap: 12px; }
+        .faq-item.open .faq-chevron { transform: rotate(180deg); }
+        .faq-chevron { transition: transform 0.3s ease; color: var(--brand-teal); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 16px; font-size: 0.83rem; color: var(--text-secondary); }
+        .faq-item.open .faq-answer { max-height: 220px; padding: 0 16px 16px; }
 
-        /* ==========================================================================
-           8. CURATED VISUAL GALLERY (UNCLUTTERED EDITORIAL MASONRY)
-           ========================================================================== */
-        .editorial-gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
+        /* FINAL CTA */
+        .final-cta-card { background: linear-gradient(160deg, #161413 0%, #24201E 100%); color: #FFFFFF; border-radius: var(--radius-xl); padding: 28px 20px; text-align: center; }
+        .final-cta-card h2 { font-size: 1.65rem; margin-bottom: 8px; color: #FFFFFF; }
+        .final-cta-card p { font-size: 0.86rem; color: rgba(255, 255, 255, 0.78); margin-bottom: 20px; }
+        .lead-form { display: flex; flex-direction: column; gap: 10px; text-align: left; margin-bottom: 16px; }
+        .lead-input, .lead-select { width: 100%; padding: 13px 14px; border-radius: var(--radius-md); border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.08); color: #FFFFFF; font-family: inherit; font-size: 0.88rem; outline: none; }
+        .lead-input::placeholder { color: rgba(255, 255, 255, 0.5); }
+        .lead-select option { background: #161413; color: #FFFFFF; }
+        .btn-gold { width: 100%; padding: 15px; border-radius: var(--radius-md); border: none; background: linear-gradient(135deg, var(--brand-gold), #B0833B); color: #161413; font-weight: 700; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .contact-copy-box { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.12); display: flex; flex-direction: column; gap: 8px; }
+        .copy-row { display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.06); padding: 10px 14px; border-radius: 10px; font-size: 0.82rem; }
+        .copy-trigger { background: rgba(255, 255, 255, 0.14); border: none; color: var(--brand-gold-light); padding: 5px 10px; border-radius: 6px; font-size: 0.72rem; font-weight: 700; cursor: pointer; }
 
-        .gallery-item {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            aspect-ratio: 4 / 5;
-            cursor: pointer;
-            border: 1px solid var(--border-color);
-        }
-
-        .gallery-item.featured-wide {
-            grid-column: span 2;
-            aspect-ratio: 16 / 10;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-caption {
-            position: absolute;
-            inset: auto 0 0 0;
-            padding: 24px 14px 12px;
-            background: linear-gradient(to top, rgba(22, 20, 19, 0.85), transparent);
-            color: #FFFFFF;
-        }
-
-        .gallery-caption h4 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.84rem;
-            font-weight: 700;
-        }
-
-        .gallery-caption p {
-            font-size: 0.72rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* ==========================================================================
-           9. SERVICES & VALUE OFFERED (MARKETING & BEAUTY CONSULTATION)
-           ========================================================================== */
-        .service-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .service-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 16px;
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            box-shadow: var(--shadow-card);
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            border-color: var(--brand-teal);
-            transform: translateX(4px);
-        }
-
-        .service-icon {
-            width: 44px;
-            height: 44px;
-            min-width: 44px;
-            border-radius: 12px;
-            background: rgba(27, 84, 89, 0.08);
-            color: var(--brand-teal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .service-content h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .service-content p {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            line-height: 1.45;
-        }
-
-        /* ==========================================================================
-           10. SOCIAL PROOF & CUSTOMER TESTIMONIALS
-           ========================================================================== */
-        .testimonial-track {
-            display: flex;
-            gap: 14px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding-bottom: 10px;
-            scrollbar-width: none;
-        }
-
-        .testimonial-track::-webkit-scrollbar {
-            display: none;
-        }
-
-        .testimonial-card {
-            min-width: 85%;
-            scroll-snap-align: start;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 18px;
-            box-shadow: var(--shadow-card);
-        }
-
-        .stars {
-            color: #F59E0B;
-            display: flex;
-            gap: 2px;
-            margin-bottom: 10px;
-        }
-
-        .review-text {
-            font-size: 0.86rem;
-            color: var(--text-primary);
-            margin-bottom: 14px;
-            font-style: italic;
-        }
-
-        .reviewer {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .reviewer-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--brand-teal);
-            color: #FFF;
-            font-weight: 700;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .reviewer-meta strong {
-            display: block;
-            font-size: 0.82rem;
-            color: var(--text-primary);
-        }
-
-        .reviewer-meta span {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-        }
-
-        .social-banner {
-            margin-top: 16px;
-            background: var(--bg-accent-soft);
-            border-radius: var(--radius-lg);
-            padding: 14px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid var(--border-color);
-        }
-
-        .social-banner-text strong {
-            display: block;
-            font-size: 0.86rem;
-            color: var(--text-primary);
-        }
-
-        .social-banner-text span {
-            font-size: 0.76rem;
-            color: var(--text-secondary);
-        }
-
-        /* ==========================================================================
-           11. FAQ ACCORDION
-           ========================================================================== */
-        .faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .faq-item {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-        }
-
-        .faq-question {
-            width: 100%;
-            padding: 15px 16px;
-            background: transparent;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-align: left;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            cursor: pointer;
-            gap: 12px;
-        }
-
-        .faq-question i {
-            transition: transform 0.3s ease;
-            color: var(--brand-teal);
-            flex-shrink: 0;
-        }
-
-        .faq-item.open .faq-question i {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease, padding 0.35s ease;
-            padding: 0 16px;
-            font-size: 0.83rem;
-            color: var(--text-secondary);
-        }
-
-        .faq-item.open .faq-answer {
-            max-height: 200px;
-            padding: 0 16px 16px;
-        }
-
-        /* ==========================================================================
-           12. FINAL CONVERSION CTA & DIRECT LEAD FORM (HUBUNGI AYDA SHOP)
-           ========================================================================== */
-        .final-cta-card {
-            background: linear-gradient(160deg, #161413 0%, #24201E 100%);
-            color: #FFFFFF;
-            border-radius: var(--radius-xl);
-            padding: 28px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .final-cta-card h2 {
-            font-size: 1.65rem;
-            margin-bottom: 8px;
-            color: #FFFFFF;
-        }
-
-        .final-cta-card p {
-            font-size: 0.86rem;
-            color: rgba(255, 255, 255, 0.78);
-            margin-bottom: 20px;
-        }
-
-        .lead-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            text-align: left;
-            margin-bottom: 16px;
-        }
-
-        .lead-input, .lead-select {
-            width: 100%;
-            padding: 13px 14px;
-            border-radius: var(--radius-md);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            background: rgba(255, 255, 255, 0.08);
-            color: #FFFFFF;
-            font-family: inherit;
-            font-size: 0.88rem;
-            outline: none;
-        }
-
-        .lead-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .lead-select option {
-            background: #161413;
-            color: #FFFFFF;
-        }
-
-        .btn-gold {
-            width: 100%;
-            padding: 15px;
-            border-radius: var(--radius-md);
-            border: none;
-            background: linear-gradient(135deg, var(--brand-gold), #B0833B);
-            color: #161413;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: var(--transition);
-        }
-
-        .btn-gold:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.06);
-        }
-
-        .contact-copy-box {
-            margin-top: 18px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .copy-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(255, 255, 255, 0.06);
-            padding: 10px 14px;
-            border-radius: 10px;
-            font-size: 0.82rem;
-        }
-
-        .copy-trigger {
-            background: rgba(255, 255, 255, 0.14);
-            border: none;
-            color: var(--brand-gold-light);
-            padding: 5px 10px;
-            border-radius: 6px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        /* ==========================================================================
-           13. STICKY BOTTOM CONVERSION BAR
-           ========================================================================== */
+        /* STICKY BAR */
         .sticky-bar {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 480px;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-top: 1px solid var(--border-color);
-            padding: 12px 16px;
-            display: flex;
-            gap: 10px;
-            z-index: 60;
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.06);
+            position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 100%; max-width: 480px;
+            background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(16px);
+            border-top: 1px solid var(--border-color); padding: 12px 16px;
+            display: flex; gap: 10px; z-index: 60; box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.06);
         }
+        .sticky-wa { flex: 1; background: #1B5459; color: #FFFFFF; text-decoration: none; border-radius: 12px; padding: 12px 16px; font-weight: 700; font-size: 0.88rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .sticky-save { background: var(--bg-accent-soft); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 12px; padding: 12px 14px; font-weight: 700; font-size: 0.82rem; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; }
 
-        .sticky-wa {
-            flex: 1;
-            background: #1B5459;
-            color: #FFFFFF;
-            text-decoration: none;
-            border-radius: 12px;
-            padding: 12px 16px;
-            font-weight: 700;
-            font-size: 0.88rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 6px 16px rgba(27, 84, 89, 0.25);
-        }
+        /* MODALS */
+        .modal-backdrop { position: fixed; inset: 0; background: rgba(22, 20, 19, 0.68); backdrop-filter: blur(6px); z-index: 100; display: none; align-items: flex-end; justify-content: center; padding: 16px; }
+        .modal-backdrop.show { display: flex; }
+        @media (min-width: 520px) { .modal-backdrop { align-items: center; } }
+        .modal-sheet { width: 100%; max-width: 440px; background: var(--bg-secondary); border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25); max-height: 90vh; display: flex; flex-direction: column; }
+        .modal-header { position: relative; height: 250px; background: #F4EFEA; }
+        .modal-header img { width: 100%; height: 100%; object-fit: cover; }
+        .modal-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.92); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+        .modal-body { padding: 20px; overflow-y: auto; }
+        .modal-tag { font-size: 0.72rem; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.08em; }
+        .modal-title { font-size: 1.35rem; margin: 4px 0 10px; }
+        .modal-desc { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 14px; }
+        .modal-benefits { list-style: none; margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; }
+        .modal-benefits li { font-size: 0.83rem; display: flex; align-items: center; gap: 8px; color: var(--text-primary); font-weight: 500; }
+        .qr-frame { background: #FFFFFF; padding: 14px; border-radius: 18px; border: 1px solid var(--border-color); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; box-shadow: var(--shadow-card); }
 
-        .sticky-save {
-            background: var(--bg-accent-soft);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 12px 14px;
-            font-weight: 700;
-            font-size: 0.82rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            cursor: pointer;
-        }
-
-        /* ==========================================================================
-           14. PRODUCT POPUP MODAL & QR CODE MODAL & TOAST
-           ========================================================================== */
-        .modal-backdrop {
-            position: fixed;
-            inset: 0;
-            background: rgba(22, 20, 19, 0.65);
-            backdrop-filter: blur(6px);
-            z-index: 100;
-            display: none;
-            align-items: flex-end;
-            justify-content: center;
-            padding: 16px;
-        }
-
-        .modal-backdrop.show {
-            display: flex;
-            animation: fadeIn 0.25s ease;
-        }
-
-        @media (min-width: 520px) {
-            .modal-backdrop {
-                align-items: center;
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-sheet {
-            width: 100%;
-            max-width: 440px;
-            background: var(--bg-secondary);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-            animation: slideUp 0.32s cubic-bezier(0.22, 1, 0.36, 1);
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(40px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .modal-header {
-            position: relative;
-            height: 250px;
-            background: #F4EFEA;
-        }
-
-        .modal-header img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 14px;
-            right: 14px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-        }
-
-        .modal-body {
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .modal-tag {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--brand-gold);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .modal-title {
-            font-size: 1.35rem;
-            margin: 4px 0 10px;
-        }
-
-        .modal-desc {
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-            margin-bottom: 14px;
-        }
-
-        .modal-benefits {
-            list-style: none;
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .modal-benefits li {
-            font-size: 0.83rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .modal-benefits li i {
-            color: var(--brand-teal);
-            width: 16px;
-            height: 16px;
-        }
-
-        /* Real QR Box Styling */
-        .qr-frame {
-            background: #FFFFFF;
-            padding: 16px;
-            border-radius: 18px;
-            border: 1px solid var(--border-color);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-            box-shadow: var(--shadow-card);
-        }
-
-        #realQrContainer img, #realQrContainer canvas {
-            display: block;
-            border-radius: 8px;
-        }
-
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            top: 72px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-20px);
-            background: #161413;
-            color: #FFFFFF;
-            padding: 10px 18px;
-            border-radius: 99px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            z-index: 200;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
+        /* TOAST */
+        .toast { position: fixed; top: 72px; left: 50%; transform: translateX(-50%) translateY(-20px); background: #161413; color: #FFFFFF; padding: 10px 18px; border-radius: 99px; font-size: 0.82rem; font-weight: 600; z-index: 200; opacity: 0; pointer-events: none; transition: all 0.3s ease; box-shadow: 0 10px 25px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
     </style>
 </head>
 <body>
 
 <div class="app-shell">
-    <!-- ======================================================================
-         STICKY TOP BAR
-         ====================================================================== -->
+    <!-- TOP BAR -->
     <header class="top-bar">
         <div class="top-brand">
             <img src="1996.jpg" alt="Ayda Shop Logo" onerror="this.src='https://placehold.co/100x100/1B5459/C69B53?text=AS'">
             <span>AYDA SHOP</span>
         </div>
         <div class="top-actions">
-            <button class="icon-btn" id="openQrBtn" title="Kod QR Kad Digital" aria-label="Kod QR">
-                <i data-lucide="qr-code" size="18"></i>
+            <button type="button" class="icon-btn" onclick="openQrModal()" title="Kod QR Kad Digital" aria-label="Kod QR">
+                <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM18 18h3v3h-3zM14 20h2M20 14v2"/></svg>
             </button>
-            <button class="icon-btn" id="shareCardBtn" title="Kongsi Kad Digital" aria-label="Kongsi">
-                <i data-lucide="share-2" size="18"></i>
+            <button type="button" class="icon-btn" onclick="shareDigitalCard()" title="Kongsi Kad Digital" aria-label="Kongsi">
+                <svg class="ico" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
             </button>
         </div>
         <div class="scroll-progress" id="scrollProgress"></div>
     </header>
 
-    <!-- ======================================================================
-         HERO PROFILE SECTION (GAMBAR PROFIL + IDENTITI MARKETING EXECUTIVE)
-         ====================================================================== -->
+    <!-- HERO PROFILE SECTION -->
     <section class="hero-section">
-        <div class="hero-card reveal active">
+        <div class="hero-card">
             <div class="hero-badge">
                 <span class="pulse-dot"></span>
                 <span>Available for Consultation & Order</span>
             </div>
 
-            <!-- Gambar Profil Utama (1996.jpg) -->
             <div class="avatar-wrapper">
                 <div class="avatar-ring"></div>
                 <img src="1996.jpg" alt="Ayda Shop - Marketing Executive" class="avatar-img" onerror="this.src='https://placehold.co/300x300/FAF6F0/1B5459?text=AYDA+SHOP'">
                 <div class="verified-seal" title="Verified Marketing Executive">
-                    <i data-lucide="badge-check" size="16"></i>
+                    <svg class="ico" style="width:16px;height:16px;" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
                 </div>
             </div>
 
@@ -1260,68 +339,62 @@
                 Membantu wanita tampil yakin dengan rangkaian penjagaan kulit & kosmetik tulen pilihan pakar. Dari konsultasi kulit peribadi hingga kolaborasi kempen kecantikan berimpak tinggi.
             </p>
 
-            <!-- Primary Conversion CTAs -->
             <div class="hero-cta-group">
                 <a href="https://wa.me/601174717796?text=Hai%20Ayda%20Shop!%20Saya%20tertarik%20untuk%20dapatkan%20konsultasi%20produk%20beauty%20%26%20cosmetics." target="_blank" rel="noopener" class="btn-primary">
-                    <i data-lucide="message-circle" size="20"></i>
+                    <svg class="ico" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
                     <span>WhatsApp Terus Sekarang</span>
                 </a>
-                <button class="btn-secondary" id="saveVcardBtn">
-                    <i data-lucide="user-plus" size="17"></i>
+                <button type="button" class="btn-secondary" onclick="downloadVCard()">
+                    <svg class="ico" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
                     <span>Save Contact</span>
                 </button>
                 <a href="#katalog-produk" class="btn-secondary">
-                    <i data-lucide="sparkles" size="17"></i>
+                    <svg class="ico" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
                     <span>Lihat Produk</span>
                 </a>
             </div>
 
-            <!-- 4-Column Quick Action Bar -->
             <div class="quick-contacts">
                 <a href="tel:+601174717796" class="q-item">
-                    <div class="q-icon"><i data-lucide="phone" size="18"></i></div>
+                    <div class="q-icon"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
                     <span>Call</span>
                 </a>
                 <a href="mailto:Aydashop19@gmail.com" class="q-item">
-                    <div class="q-icon"><i data-lucide="mail" size="18"></i></div>
+                    <div class="q-icon"><svg class="ico" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
                     <span>Email</span>
                 </a>
-                <button class="q-item" onclick="copyText('01174717796', 'Nombor telefon disalin!')">
-                    <div class="q-icon"><i data-lucide="copy" size="18"></i></div>
+                <button type="button" class="q-item" onclick="copyText('01174717796', 'Nombor telefon disalin!')">
+                    <div class="q-icon"><svg class="ico" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></div>
                     <span>Salin No.</span>
                 </button>
                 <a href="#hubungi-ayda" class="q-item">
-                    <div class="q-icon"><i data-lucide="send" size="18"></i></div>
+                    <div class="q-icon"><svg class="ico" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></div>
                     <span>Pertanyaan</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ======================================================================
-         ANIMATED CREDIBILITY & ACHIEVEMENT STATISTICS
-         ====================================================================== -->
-    <section class="section reveal">
+    <!-- STATISTICS -->
+    <section class="section">
         <div class="stats-grid">
             <div class="stat-card">
-                <span class="stat-number" data-target="1500" data-suffix="+">1500+</span>
+                <span class="stat-number">1500+</span>
                 <span class="stat-label">Pelanggan Berpuas Hati</span>
             </div>
             <div class="stat-card">
-                <span class="stat-number" data-target="100" data-suffix="%">100%</span>
+                <span class="stat-number">100%</span>
                 <span class="stat-label">Produk Tulen & Diuji</span>
             </div>
             <div class="stat-card">
-                <span class="stat-number" data-target="4.9" data-decimal="true" data-suffix="★">4.9★</span>
+                <span class="stat-number">4.9★</span>
                 <span class="stat-label">Rating Kepuasan</span>
             </div>
         </div>
     </section>
 
-    <!-- ======================================================================
-         EXECUTIVE INTRODUCTION & BRAND STORYTELLING
-         ====================================================================== -->
-    <section class="section reveal">
+    <!-- EXECUTIVE STORY -->
+    <section class="section">
         <div class="story-card">
             <span class="section-tag" style="color: var(--brand-gold-light);">Profil Eksekutif</span>
             <p class="story-quote">
@@ -1338,36 +411,370 @@
         </div>
     </section>
 
-    <!-- ======================================================================
-         PRODUK UTAMA AYDA SHOP (INTERACTIVE FILTER & POPUP DETAIL)
-         ====================================================================== -->
-    <section class="section reveal" id="katalog-produk">
+    <!-- PRODUK UTAMA AYDA SHOP (31 PRODUK TERBINA TERUS DALAM HTML) -->
+    <section class="section" id="katalog-produk">
         <div class="section-header">
             <span class="section-tag">Koleksi Terlaris 2026</span>
             <h2 class="section-title">Produk Utama Ayda Shop</h2>
             <p class="section-subtitle">Klik mana-mana produk untuk melihat manfaat utama & tempahan pantas.</p>
         </div>
 
-        <!-- Category Filter Tabs -->
         <div class="filter-tabs" id="categoryTabs">
-            <button class="tab-btn active" data-filter="all">Semua (31)</button>
-            <button class="tab-btn" data-filter="bodycare">Body & Lotion (16)</button>
-            <button class="tab-btn" data-filter="perfume">Perfume (6)</button>
-            <button class="tab-btn" data-filter="moisturizer">Moisturizer</button>
-            <button class="tab-btn" data-filter="sunscreen">Sunscreen & Serum</button>
-            <button class="tab-btn" data-filter="cleanser">Cleanser & Lips</button>
+            <button type="button" class="tab-btn active" onclick="filterProducts('all', this)">Semua (31)</button>
+            <button type="button" class="tab-btn" onclick="filterProducts('bodycare', this)">Body & Lotion (16)</button>
+            <button type="button" class="tab-btn" onclick="filterProducts('perfume', this)">Perfume (6)</button>
+            <button type="button" class="tab-btn" onclick="filterProducts('moisturizer', this)">Moisturizer</button>
+            <button type="button" class="tab-btn" onclick="filterProducts('sunscreen', this)">Sunscreen & Serum</button>
+            <button type="button" class="tab-btn" onclick="filterProducts('cleanser', this)">Cleanser & Lips</button>
         </div>
 
-        <!-- Product Grid -->
         <div class="product-grid" id="productGrid">
-            <!-- Injected dynamically via Vanilla JS -->
+            <!-- 0 -->
+            <div class="product-card" data-cat="moisturizer" onclick="openProductModal(0)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Best Seller</span>
+                    <img data-pid="0" src="glad2glow blueberry 5% ceramide moistturizer.jpg" alt="Blueberry 5% Ceramide Moisturizer" loading="lazy" onerror="imgFallback(this,'Glad2Glow')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Glad2Glow</span><h3 class="product-name">Blueberry 5% Ceramide Moisturizer</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 1 -->
+            <div class="product-card" data-cat="moisturizer" onclick="openProductModal(1)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Calming Care</span>
+                    <img data-pid="1" src="Glad2Glow Centella Allantoin Soothing Gel .jpg" alt="Centella Allantoin Soothing Gel" loading="lazy" onerror="imgFallback(this,'Glad2Glow')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Glad2Glow</span><h3 class="product-name">Centella Allantoin Soothing Gel</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="product-card" data-cat="moisturizer" onclick="openProductModal(2)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Glow Boost</span>
+                    <img data-pid="2" src="glad2glow pomegranate niacinamide brightening moisturizer.jpg" alt="Pomegranate Niacinamide Brightening" loading="lazy" onerror="imgFallback(this,'Glad2Glow')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Glad2Glow</span><h3 class="product-name">Pomegranate Niacinamide Brightening</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 3 -->
+            <div class="product-card" data-cat="moisturizer" onclick="openProductModal(3)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Dark Spot</span>
+                    <img data-pid="3" src="glad2glow yuja 377 dark spot moisturizer.jpg" alt="Yuja 377 Dark Spot Moisturizer" loading="lazy" onerror="imgFallback(this,'Glad2Glow')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Glad2Glow</span><h3 class="product-name">Yuja 377 Dark Spot Moisturizer</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 4 -->
+            <div class="product-card" data-cat="sunscreen" onclick="openProductModal(4)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">UV Shield</span>
+                    <img data-pid="4" src="glad2glow daily moisturizing sunscreen spf 50.jpg" alt="Daily Moisturizing Sunscreen SPF 50" loading="lazy" onerror="imgFallback(this,'Glad2Glow')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Glad2Glow</span><h3 class="product-name">Daily Moisturizing Sunscreen SPF 50</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 5 -->
+            <div class="product-card" data-cat="sunscreen" onclick="openProductModal(5)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Premium UV</span>
+                    <img data-pid="5" src="mary kay sheer uv defense milk spf 50.jpg" alt="Sheer UV Defense Milk SPF 50+" loading="lazy" onerror="imgFallback(this,'Mary Kay')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Mary Kay</span><h3 class="product-name">Sheer UV Defense Milk SPF 50+</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 6 -->
+            <div class="product-card" data-cat="cleanser" onclick="openProductModal(6)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Trending</span>
+                    <img data-pid="6" src="m.a.c cosmetics squirt plumping gloss stick.jpg" alt="Squirt Plumping Gloss Stick" loading="lazy" onerror="imgFallback(this,'M.A.C')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">M.A.C Cosmetics</span><h3 class="product-name">Squirt Plumping Gloss Stick</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 7 -->
+            <div class="product-card" data-cat="sunscreen" onclick="openProductModal(7)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Clinical Set</span>
+                    <img data-pid="7" src="the ordinary The Age Support Set (Regimen).jpg" alt="The Age Support Set (Regimen)" loading="lazy" onerror="imgFallback(this,'The Ordinary')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">The Ordinary</span><h3 class="product-name">The Age Support Set (Regimen)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 8 -->
+            <div class="product-card" data-cat="cleanser" onclick="openProductModal(8)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Daily Wash</span>
+                    <img data-pid="8" src="glad2lad milk amino acids brightening cleanser.jpg" alt="Milk Amino Acids Brightening Cleanser" loading="lazy" onerror="imgFallback(this,'Glad2Glow')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Glad2Glow</span><h3 class="product-name">Milk Amino Acids Brightening Cleanser</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 9 -->
+            <div class="product-card" data-cat="perfume" onclick="openProductModal(9)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">For Men</span>
+                    <img data-pid="9" src="Eau De Parfum Hot Blue For Men (100ml).jpg" alt="Hot Blue For Men (100ml)" loading="lazy" onerror="imgFallback(this,'Eau De Parfum')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Eau De Parfum</span><h3 class="product-name">Hot Blue For Men (100ml)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 10 -->
+            <div class="product-card" data-cat="perfume" onclick="openProductModal(10)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Exclusive</span>
+                    <img data-pid="10" src="Eau De Parfum Lovely Lassie & Victorious Edition.jpg" alt="Lovely Lassie & Victorious Edition" loading="lazy" onerror="imgFallback(this,'Eau De Parfum')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Eau De Parfum</span><h3 class="product-name">Lovely Lassie & Victorious Edition</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 11 -->
+            <div class="product-card" data-cat="perfume" onclick="openProductModal(11)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">For Women</span>
+                    <img data-pid="11" src="Eau De Parfum Nice Women Eau De Parfum .jpg" alt="Nice Women Eau De Parfum" loading="lazy" onerror="imgFallback(this,'Eau De Parfum')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Eau De Parfum</span><h3 class="product-name">Nice Women Eau De Parfum</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 12 -->
+            <div class="product-card" data-cat="perfume" onclick="openProductModal(12)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Bold Scent</span>
+                    <img data-pid="12" src="eau de parfum boos black boos for men (50ml).jpg" alt="Boos Black Boos For Men (50ml)" loading="lazy" onerror="imgFallback(this,'Eau De Parfum')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Eau De Parfum</span><h3 class="product-name">Boos Black Boos For Men (50ml)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 13 -->
+            <div class="product-card" data-cat="perfume" onclick="openProductModal(13)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Signature</span>
+                    <img data-pid="13" src="Eau De Parfum Victorious & Lovely Lassie Noir (50ml).jpg" alt="Victorious & Lovely Lassie Noir (50ml)" loading="lazy" onerror="imgFallback(this,'Eau De Parfum')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Eau De Parfum</span><h3 class="product-name">Victorious & Lovely Lassie Noir (50ml)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 14 -->
+            <div class="product-card" data-cat="perfume" onclick="openProductModal(14)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Fresh Floral</span>
+                    <img data-pid="14" src="Eau De Parfum Love's Fresh For Women.jpg" alt="Love's Fresh For Women" loading="lazy" onerror="imgFallback(this,'Eau De Parfum')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Eau De Parfum</span><h3 class="product-name">Love's Fresh For Women</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 15 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(15)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Hydra Active</span>
+                    <img data-pid="15" src="Guardian rose silky shower cream (1000ml).jpg" alt="Rose Silky Shower Cream (1000ml)" loading="lazy" onerror="imgFallback(this,'Guardian')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Guardian</span><h3 class="product-name">Rose Silky Shower Cream (1000ml)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 16 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(16)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Refreshing</span>
+                    <img data-pid="16" src="Guardian grapefruit refreshing body wash.jpg" alt="Grapefruit Refreshing Body Wash" loading="lazy" onerror="imgFallback(this,'Guardian')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Guardian</span><h3 class="product-name">Grapefruit Refreshing Body Wash</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 17 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(17)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Nourishing</span>
+                    <img data-pid="17" src="GuardianEssential goat's milk shower cream (1200ml).jpg" alt="Goat's Milk Shower Cream (1200ml)" loading="lazy" onerror="imgFallback(this,'Guardian')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Guardian Essential</span><h3 class="product-name">Goat's Milk Shower Cream (1200ml)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 18 -->
+            <div class="product-card" data-cat="cleanser" onclick="openProductModal(18)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Acne Care</span>
+                    <img data-pid="18" src="Scarlett acne essence toner.jpg" alt="Acne Essence Toner" loading="lazy" onerror="imgFallback(this,'Scarlett')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Scarlett</span><h3 class="product-name">Acne Essence Toner</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 19 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(19)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Body Serum</span>
+                    <img data-pid="19" src="Scarlett jolly body serum ceramide hyalur (500ml).jpg" alt="Jolly Body Serum Ceramide Hyalur (500ml)" loading="lazy" onerror="imgFallback(this,'Scarlett')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Scarlett</span><h3 class="product-name">Jolly Body Serum Ceramide Hyalur (500ml)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 20 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(20)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">72h Moisture</span>
+                    <img data-pid="20" src="Vaseline intensive care dry skin repair (400ml).jpg" alt="Intensive Care Dry Skin Repair (400ml)" loading="lazy" onerror="imgFallback(this,'Vaseline')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Vaseline</span><h3 class="product-name">Intensive Care Dry Skin Repair (400ml)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 21 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(21)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Soothing Aloe</span>
+                    <img data-pid="21" src="Herbal care cooling aloe moisturizing lotion.jpg" alt="Cooling Aloe Moisturizing Lotion" loading="lazy" onerror="imgFallback(this,'Herbal Care')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Herbal Care</span><h3 class="product-name">Cooling Aloe Moisturizing Lotion</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 22 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(22)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Vitamin E</span>
+                    <img data-pid="22" src="Smerl nourishing vitamin E lotion (350ml).jpg" alt="Nourishing Vitamin E Lotion (350ml)" loading="lazy" onerror="imgFallback(this,'Smerl')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Smerl</span><h3 class="product-name">Nourishing Vitamin E Lotion (350ml)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 23 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(23)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Pro-Ceramide</span>
+                    <img data-pid="23" src="Vaseline intensive care aloe soothe (320ml).jpg" alt="Intensive Care Aloe Soothe (320ml)" loading="lazy" onerror="imgFallback(this,'Vaseline')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Vaseline</span><h3 class="product-name">Intensive Care Aloe Soothe (320ml)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 24 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(24)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Healthy Glow</span>
+                    <img data-pid="24" src="Vaseline intensive care cocoa glow (400ml).jpg" alt="Intensive Care Cocoa Glow (400ml)" loading="lazy" onerror="imgFallback(this,'Vaseline')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Vaseline</span><h3 class="product-name">Intensive Care Cocoa Glow (400ml)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 25 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(25)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Deep Restore</span>
+                    <img data-pid="25" src="Vaseline intensive care deep restore lotion (400ml).jpg" alt="Intensive Care Deep Restore Lotion (400ml)" loading="lazy" onerror="imgFallback(this,'Vaseline')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Vaseline</span><h3 class="product-name">Intensive Care Deep Restore Lotion (400ml)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 26 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(26)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Herbal Care</span>
+                    <img data-pid="26" src="Kilei biadara leafs botanical body soap.jpg" alt="Bidara Leafs Botanical Body Soap" loading="lazy" onerror="imgFallback(this,'Kilei')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Kilei</span><h3 class="product-name">Bidara Leafs Botanical Body Soap</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 27 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(27)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Floral Scent</span>
+                    <img data-pid="27" src="Skin cottage bath+club botanical body bath.jpg" alt="Bath+Club Botanical Body Bath" loading="lazy" onerror="imgFallback(this,'Skin Cottage')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Skin Cottage</span><h3 class="product-name">Bath+Club Botanical Body Bath</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 28 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(28)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Mild & Gentle</span>
+                    <img data-pid="28" src="Johnson's gentle baby & family bath collection.jpg" alt="Gentle Baby & Family Bath Collection" loading="lazy" onerror="imgFallback(this,'Johnson\'s')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Johnson's</span><h3 class="product-name">Gentle Baby & Family Bath Collection</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 29 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(29)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">Botanical</span>
+                    <img data-pid="29" src="Watsons love my skin freesia botanical body wash.jpg" alt="Love My Skin Freesia Botanical Body Wash" loading="lazy" onerror="imgFallback(this,'Watsons')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Watsons</span><h3 class="product-name">Love My Skin Freesia Botanical Body Wash</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
+            <!-- 30 -->
+            <div class="product-card" data-cat="bodycare" onclick="openProductModal(30)">
+                <div class="product-img-wrap">
+                    <span class="product-badge">99.9% Protection</span>
+                    <img data-pid="30" src="Guardian antibacterial cool mint hand wash (500ml).jpg" alt="Antibacterial Cool Mint Hand Wash (500ml)" loading="lazy" onerror="imgFallback(this,'Guardian')">
+                </div>
+                <div class="product-info">
+                    <div><span class="product-brand">Guardian</span><h3 class="product-name">Antibacterial Cool Mint Hand Wash (500ml)</h3></div>
+                    <div class="product-action"><span>Info & Tempah</span><span>↗</span></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ======================================================================
-         GALERI VISUAL & SUASANA PERNIAGAAN (EDITORIAL STORYTELLING)
-         ====================================================================== -->
-    <section class="section reveal">
+    <!-- VISUAL GALLERY -->
+    <section class="section">
         <div class="section-header">
             <span class="section-tag">Visual & Kurasi</span>
             <h2 class="section-title">Rangkaian Kecantikan Pilihan</h2>
@@ -1399,10 +806,8 @@
         </div>
     </section>
 
-    <!-- ======================================================================
-         SERVIS & BANTUAN YANG DITAWARKAN
-         ====================================================================== -->
-    <section class="section reveal">
+    <!-- SERVICES -->
+    <section class="section">
         <div class="section-header">
             <span class="section-tag">Bagaimana Saya Bantu Anda</span>
             <h2 class="section-title">Servis & Kepakaran</h2>
@@ -1410,21 +815,21 @@
 
         <div class="service-list">
             <div class="service-card">
-                <div class="service-icon"><i data-lucide="sparkles" size="22"></i></div>
+                <div class="service-icon"><svg class="ico" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg></div>
                 <div class="service-content">
                     <h3>Konsultasi Jenis Kulit Peribadi</h3>
                     <p>Cadangan set skincare khusus untuk masalah kulit kusam, jerawat, bintik hitam, atau skin barrier rosak.</p>
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i data-lucide="gift" size="22"></i></div>
+                <div class="service-icon"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg></div>
                 <div class="service-content">
                     <h3>Set Hadiah & Kotak Kecantikan</h3>
                     <p>Kurasi set hadiah eksklusif untuk hari lahir, hantaran, atau penghargaan korporat dengan pembungkusan kemas.</p>
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i data-lucide="megaphone" size="22"></i></div>
+                <div class="service-icon"><svg class="ico" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div>
                 <div class="service-content">
                     <h3>Pemasaran & Kolaborasi Kempen</h3>
                     <p>Terbuka untuk kerjasama promosi produk kecantikan, ulasan TikTok, dan tempahan borong/ejen.</p>
@@ -1433,10 +838,8 @@
         </div>
     </section>
 
-    <!-- ======================================================================
-         SOCIAL PROOF & TESTIMONIAL PELANGGAN
-         ====================================================================== -->
-    <section class="section reveal">
+    <!-- TESTIMONIALS -->
+    <section class="section">
         <div class="section-header">
             <span class="section-tag">Maklum Balas Pelanggan</span>
             <h2 class="section-title">Apa Kata Mereka?</h2>
@@ -1444,67 +847,39 @@
 
         <div class="testimonial-track">
             <div class="testimonial-card">
-                <div class="stars">
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                </div>
+                <div class="stars">★★★★★</div>
                 <p class="review-text">
                     "Sangat puas hati beli dengan Ayda Shop! Syorkan Glad2Glow Blueberry Ceramide untuk kulit saya yang merah-merah, dalam seminggu dah nampak tenang."
                 </p>
                 <div class="reviewer">
                     <div class="reviewer-avatar">NR</div>
-                    <div class="reviewer-meta">
-                        <strong>Nurul Syafiqah</strong>
-                        <span>Pelanggan Tetap • Skincare Routine</span>
-                    </div>
+                    <div class="reviewer-meta"><strong>Nurul Syafiqah</strong><span>Pelanggan Tetap • Skincare Routine</span></div>
                 </div>
             </div>
 
             <div class="testimonial-card">
-                <div class="stars">
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                </div>
+                <div class="stars">★★★★★</div>
                 <p class="review-text">
                     "Layanan pantas dan sangat mesra. Barang sampai dalam keadaan elok, original 100%, siap dapat tip cara layer serum The Ordinary dengan betul."
                 </p>
                 <div class="reviewer">
                     <div class="reviewer-avatar">AI</div>
-                    <div class="reviewer-meta">
-                        <strong>Aina Mardhiah</strong>
-                        <span>Verified Buyer • Kuala Lumpur</span>
-                    </div>
+                    <div class="reviewer-meta"><strong>Aina Mardhiah</strong><span>Verified Buyer • Kuala Lumpur</span></div>
                 </div>
             </div>
 
             <div class="testimonial-card">
-                <div class="stars">
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
-                </div>
+                <div class="stars">★★★★★</div>
                 <p class="review-text">
                     "M.A.C Plumping Gloss Stick memang cantik sangat! Terima kasih Ayda Shop bantu pilihkan shade yang sesuai dengan tona kulit saya."
                 </p>
                 <div class="reviewer">
                     <div class="reviewer-avatar">FH</div>
-                    <div class="reviewer-meta">
-                        <strong>Farah Hanim</strong>
-                        <span>Makeup Enthusiast • Seremban</span>
-                    </div>
+                    <div class="reviewer-meta"><strong>Farah Hanim</strong><span>Makeup Enthusiast • Seremban</span></div>
                 </div>
             </div>
         </div>
 
-        <!-- TikTok Social Proof Banner -->
         <div class="social-banner">
             <div class="social-banner-text">
                 <strong>Find Me on TikTok • @aydashop</strong>
@@ -1516,10 +891,8 @@
         </div>
     </section>
 
-    <!-- ======================================================================
-         SOALAN LAZIM (FAQ ACCORDION)
-         ====================================================================== -->
-    <section class="section reveal">
+    <!-- FAQ -->
+    <section class="section">
         <div class="section-header">
             <span class="section-tag">Informasi Pantas</span>
             <h2 class="section-title">Soalan Lazim (FAQ)</h2>
@@ -1527,27 +900,27 @@
 
         <div class="faq-list">
             <div class="faq-item">
-                <button class="faq-question">
+                <button type="button" class="faq-question" onclick="this.parentElement.classList.toggle('open')">
                     <span>Adakah semua produk di Ayda Shop 100% original?</span>
-                    <i data-lucide="chevron-down" size="18"></i>
+                    <span class="faq-chevron">▾</span>
                 </button>
                 <div class="faq-answer">
                     Ya, 100% tulen. Setiap produk diperoleh terus daripada pengedar sah dan jenama rasmi bagi menjamin keselamatan serta keberkesanan pada kulit anda.
                 </div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">
+                <button type="button" class="faq-question" onclick="this.parentElement.classList.toggle('open')">
                     <span>Boleh dapatkan cadangan produk ikut bajet & jenis kulit?</span>
-                    <i data-lucide="chevron-down" size="18"></i>
+                    <span class="faq-chevron">▾</span>
                 </button>
                 <div class="faq-answer">
                     Sudah tentu! Anda boleh WhatsApp terus dan kongsikan masalah kulit atau bajet anda. Saya akan bantu susunkan rutin paling sesuai secara percuma.
                 </div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">
+                <button type="button" class="faq-question" onclick="this.parentElement.classList.toggle('open')">
                     <span>Berapa lama tempoh penghantaran pesanan?</span>
-                    <i data-lucide="chevron-down" size="18"></i>
+                    <span class="faq-chevron">▾</span>
                 </button>
                 <div class="faq-answer">
                     Pesanan diproses dalam masa 24 jam hari bekerja. Penghantaran ke Semenanjung biasanya mengambil masa 1–3 hari bekerja, manakala Sabah & Sarawak 3–5 hari bekerja.
@@ -1556,32 +929,28 @@
         </div>
     </section>
 
-    <!-- ======================================================================
-         CTA AKHIR & LEAD GENERATION FORM (HUBUNGI AYDA SHOP)
-         ====================================================================== -->
-    <section class="section reveal" id="hubungi-ayda">
+    <!-- FINAL CTA -->
+    <section class="section" id="hubungi-ayda">
         <div class="final-cta-card">
             <span class="section-tag" style="color: var(--brand-gold-light);">Mulakan Transformasi Anda</span>
             <h2>Hubungi Ayda Shop</h2>
             <p>Ingin membuat tempahan, konsultasi skincare, atau pertanyaan kerjasama? Hantar mesej terus ke WhatsApp dalam satu klik.</p>
 
-            <form class="lead-form" id="directLeadForm">
+            <form class="lead-form" onsubmit="submitLeadForm(event)">
                 <input type="text" id="leadName" class="lead-input" placeholder="Nama Anda (Contoh: Siti Aminah)" required>
                 <select id="leadTopic" class="lead-select">
                     <option value="Konsultasi Skincare & Cadangan Produk">Konsultasi Skincare & Cadangan Produk</option>
                     <option value="Tempahan Koleksi Body Care, Lotion & Shower Cream">Tempahan Koleksi Body Care, Lotion & Shower Cream</option>
                     <option value="Tempahan Koleksi Perfume / Eau De Parfum">Tempahan Koleksi Perfume / Eau De Parfum</option>
-                    <option value="Tempahan Produk Glad2Glow / The Ordinary / M.A.C">Tempahan Produk Skincare & Kosmetik</option>
+                    <option value="Tempahan Produk Skincare & Kosmetik">Tempahan Produk Skincare & Kosmetik</option>
                     <option value="Set Hadiah Kecantikan & Wangian">Tempahan Set Hadiah Kecantikan & Wangian</option>
                     <option value="Kerjasama Pemasaran / Pertanyaan Umum">Kerjasama Pemasaran / Pertanyaan Umum</option>
                 </select>
                 <button type="submit" class="btn-gold">
-                    <i data-lucide="send" size="18"></i>
                     <span>Hantar ke WhatsApp Sekarang</span>
                 </button>
             </form>
 
-            <!-- Direct Copy Contact Credentials -->
             <div class="contact-copy-box">
                 <div class="copy-row">
                     <span>📞 011-7471 7796</span>
@@ -1595,31 +964,25 @@
         </div>
     </section>
 
-    <!-- ======================================================================
-         STICKY BOTTOM CONVERSION BAR
-         ====================================================================== -->
+    <!-- STICKY BOTTOM BAR -->
     <div class="sticky-bar">
-        <button class="sticky-save" id="stickySaveBtn" title="Simpan ke Kenalan">
-            <i data-lucide="download" size="18"></i>
+        <button type="button" class="sticky-save" onclick="downloadVCard()" title="Simpan ke Kenalan">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span>vCard</span>
         </button>
         <a href="https://wa.me/601174717796?text=Hai%20Ayda%20Shop!%20Saya%20ingin%20bertanya%20mengenai%20produk%20kecantikan." target="_blank" rel="noopener" class="sticky-wa">
-            <i data-lucide="message-circle" size="19"></i>
+            <svg class="ico" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
             <span>WhatsApp (011-7471 7796)</span>
         </a>
     </div>
 </div>
 
-<!-- ==========================================================================
-     PRODUCT DETAIL POPUP MODAL
-     ========================================================================== -->
-<div class="modal-backdrop" id="productModal">
+<!-- PRODUCT DETAIL POPUP MODAL -->
+<div class="modal-backdrop" id="productModal" onclick="if(event.target===this)this.classList.remove('show')">
     <div class="modal-sheet">
         <div class="modal-header">
             <img id="modalImg" src="" alt="Product Image">
-            <button class="modal-close" id="closeProductModal" aria-label="Tutup">
-                <i data-lucide="x" size="20"></i>
-            </button>
+            <button type="button" class="modal-close" onclick="document.getElementById('productModal').classList.remove('show')" aria-label="Tutup">✕</button>
         </div>
         <div class="modal-body">
             <span class="modal-tag" id="modalBrand">BRAND</span>
@@ -1627,22 +990,17 @@
             <p class="modal-desc" id="modalDesc">Penerangan lengkap produk.</p>
             <ul class="modal-benefits" id="modalBenefits"></ul>
             <a href="#" id="modalWaLink" target="_blank" rel="noopener" class="btn-primary">
-                <i data-lucide="shopping-bag" size="18"></i>
                 <span>Tanya & Tempah via WhatsApp</span>
             </a>
         </div>
     </div>
 </div>
 
-<!-- ==========================================================================
-     REAL SCANNABLE QR CODE SHARE MODAL
-     ========================================================================== -->
-<div class="modal-backdrop" id="qrModal">
+<!-- REAL SCANNABLE QR CODE SHARE MODAL -->
+<div class="modal-backdrop" id="qrModal" onclick="if(event.target===this)this.classList.remove('show')">
     <div class="modal-sheet" style="max-width: 360px; text-align: center; padding: 24px;">
         <div style="display: flex; justify-content: flex-end;">
-            <button class="icon-btn" id="closeQrModal" aria-label="Tutup QR">
-                <i data-lucide="x" size="18"></i>
-            </button>
+            <button type="button" class="icon-btn" onclick="document.getElementById('qrModal').classList.remove('show')" aria-label="Tutup QR">✕</button>
         </div>
         <span class="section-tag">Imbas Untuk Kongsi</span>
         <h3 style="font-size: 1.35rem; margin-bottom: 6px;">Kod QR Ayda Shop</h3>
@@ -1650,139 +1008,202 @@
             Imbas kamera telefon anda untuk membuka kad bisnes digital ini serta-merta.
         </p>
         <div class="qr-frame">
-            <div id="realQrContainer"></div>
+            <img id="realQrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=123B3F&bgcolor=FFFFFF&data=https%3A%2F%2Faydashop19.github.io%2Fayda-shop%2F" alt="Kod QR Ayda Shop" width="200" height="200" style="display:block; border-radius:8px;">
         </div>
         <div style="display: flex; flex-direction: column; gap: 8px;">
-            <button class="btn-primary" style="width: 100%;" onclick="copyText('https://aydashop19.github.io/ayda-shop/', 'Pautan kad digital disalin!')">
-                <i data-lucide="link" size="17"></i>
+            <button type="button" class="btn-primary" style="width: 100%;" onclick="copyText('https://aydashop19.github.io/ayda-shop/', 'Pautan kad digital disalin!')">
                 <span>Salin Pautan Kad</span>
             </button>
-            <button class="btn-secondary" style="width: 100%;" id="downloadQrBtn">
-                <i data-lucide="download" size="16"></i>
-                <span>Simpan Gambar Kod QR</span>
-            </button>
+            <a href="https://api.qrserver.com/v1/create-qr-code/?size=500x500&color=123B3F&bgcolor=FFFFFF&data=https%3A%2F%2Faydashop19.github.io%2Fayda-shop%2F" target="_blank" download="Kod_QR_Ayda_Shop.png" class="btn-secondary" style="width: 100%;">
+                <span>Buka & Simpan Gambar Kod QR</span>
+            </a>
         </div>
     </div>
 </div>
 
-<!-- Toast Feedback -->
+<!-- TOAST NOTIFICATION -->
 <div class="toast" id="toastBox">
-    <i data-lucide="check-circle-2" size="16" style="color: #10B981;"></i>
+    <span style="color:#10B981;">✓</span>
     <span id="toastMsg">Berjaya disalin!</span>
 </div>
 
 <script>
-    if (window.lucide) {
-        lucide.createIcons();
+    const CARD_URL = 'https://aydashop19.github.io/ayda-shop/';
+
+    const productDetails = [
+        { brand: "Glad2Glow", name: "Blueberry 5% Ceramide Moisturizer", kw: ["blueberry"], img: "glad2glow blueberry 5% ceramide moistturizer.jpg", desc: "Pelembap bertekstur ringan dengan ekstrak Blueberry dan 5% Ceramide untuk menenangkan kemerahan, merawat jerawat, dan menguatkan skin barrier.", benefits: ["Melegakan kemerahan & iritasi kulit sensitif", "Mengunci kelembapan sehingga 24 jam", "Tekstur gel-krim lembut tanpa rasa melekit"] },
+        { brand: "Glad2Glow", name: "Centella Allantoin Soothing Gel", kw: ["centella"], img: "Glad2Glow Centella Allantoin Soothing Gel .jpg", desc: "Gel pelembap menyegarkan yang diperkaya dengan Centella Asiatica dan Allantoin untuk menyejukkan kulit kemerahan serta mengawal minyak berlebihan.", benefits: ["Kesan dingin segera untuk kulit stres & berjerawat", "Sesuai untuk kulit berminyak dan kombinasi", "Membantu memudarkan bekas kemerahan"] },
+        { brand: "Glad2Glow", name: "Pomegranate Niacinamide Brightening", kw: ["pomegranate"], img: "glad2glow pomegranate niacinamide brightening moisturizer.jpg", desc: "Pelembap pencerah dengan kombinasi ekstrak Delima (Pomegranate) dan Niacinamide untuk menyekatakan tona kulit kusam agar tampil berseri.", benefits: ["Mencerahkan kulit kusam secara semula jadi", "Menyekatakan tona kulit tidak sekata", "Menjadikan kulit terasa anjal dan halus"] },
+        { brand: "Glad2Glow", name: "Yuja 377 Dark Spot Moisturizer", kw: ["yuja"], img: "glad2glow yuja 377 dark spot moisturizer.jpg", desc: "Formulasi khas dengan ekstrak Yuja dan SymWhite 377 yang menyasarkan bintik hitam serta parut jerawat untuk kulit yang lebih jernih.", benefits: ["Memudarkan parut jerawat & bintik hitam degil", "Memberi hidrasi mendalam dengan aroma sitrus segar", "Membantu kulit tampak lebih cerah bermaya"] },
+        { brand: "Glad2Glow", name: "Daily Moisturizing Sunscreen SPF 50", kw: ["sunscreen"], img: "glad2glow daily moisturizing sunscreen spf 50.jpg", desc: "Pelindung matahari harian SPF 50 PA+++ yang melindungi kulit daripada sinaran UVA/UVB sambil mengekalkan kelembapan tanpa whitecast.", benefits: ["Perlindungan spektrum luas SPF 50 PA+++", "Sangat ringan & mudah meresap di bawah mekap", "Tidak menyumbat pori-pori"] },
+        { brand: "Mary Kay", name: "Sheer UV Defense Milk SPF 50+", kw: ["mary kay"], img: "mary kay sheer uv defense milk spf 50.jpg", desc: "Susu pelindung UV berprestasi tinggi SPF 50+/PA+++ dengan kemasan halus bak sutera untuk perlindungan maksimum daripada penuaan pramatang.", benefits: ["Tekstur susu ultra-ringan & tidak berminyak", "Perlindungan tinggi SPF 50+ untuk cuaca tropika", "Memberi kemasan kulit licin berseri"] },
+        { brand: "M.A.C Cosmetics", name: "Squirt Plumping Gloss Stick", kw: ["squirt"], img: "m.a.c cosmetics squirt plumping gloss stick.jpg", desc: "Gincu gloss berkhasiat yang mencair di bibir dengan kilauan kaca menawan, memberi kesan bibir lebih mungil, lembut dan terhidrat.", benefits: ["Pilihan rona ikonik sesuai semua tona kulit", "Diperkaya minyak botani untuk bibir lembut", "Kilauan segar tanpa rasa melekit"] },
+        { brand: "The Ordinary", name: "The Age Support Set (Regimen)", kw: ["ordinary"], img: "the ordinary The Age Support Set (Regimen).jpg", desc: "Set penjagaan anti-penuaan lengkap merangkumi Multi-Peptide + HA Serum, Multi-Peptide Eye Serum, dan Natural Moisturizing Factors.", benefits: ["Mengurangkan garis halus & meningkatkan keanjalan", "Penjagaan lengkap wajah dan kawasan mata", "Formulasi klinikal berintegriti tinggi"] },
+        { brand: "Glad2Glow", name: "Milk Amino Acids Brightening Cleanser", kw: ["milk"], img: "glad2lad milk amino acids brightening cleanser.jpg", desc: "Pencuci muka lembut dengan asid amino susu yang membersihkan kotoran secara mendalam tanpa mengeringkan lembapan semula jadi kulit.", benefits: ["Buih halus yang lembut pada skin barrier", "Membersih & mencerahkan tanpa rasa tegang", "Sesuai digunakan setiap pagi dan malam"] },
+        { brand: "Eau De Parfum", name: "Hot Blue For Men (100ml)", kw: ["hot"], img: "Eau De Parfum Hot Blue For Men (100ml).jpg", desc: "Haruman maskulin segar dan berkarisma dalam botol 100ml yang dirumus untuk ketahanan aroma sepanjang hari.", benefits: ["Nota wangian segar, maskulin & moden", "Kepekatan Eau De Parfum tahan lama", "Sesuai untuk kegunaan harian & acara rasmi"] },
+        { brand: "Eau De Parfum", name: "Lovely Lassie & Victorious Edition", kw: ["lovely lassie &"], img: "Eau De Parfum Lovely Lassie & Victorious Edition.jpg", desc: "Gandingan wangian mewah dengan kemasan botol kaca elegan yang memancarkan aura eksklusif dan memikat.", benefits: ["Aroma elegan & memikat sepanjang hari", "Saiz 30ml praktikal untuk dibawa ke mana sahaja", "Sesuai dijadikan hadiah istimewa"] },
+        { brand: "Eau De Parfum", name: "Nice Women Eau De Parfum", kw: ["nice"], img: "Eau De Parfum Nice Women Eau De Parfum .jpg", desc: "Wangian wanita berona keemasan dengan haruman flora lembut yang menyerlahkan keanggunan dan keyakinan diri.", benefits: ["Haruman flora mewah yang lembut & manis", "Ketahanan wangian tinggi pada kulit & pakaian", "Pembungkusan kotak emas eksklusif"] },
+        { brand: "Eau De Parfum", name: "Boos Black Boos For Men (50ml)", kw: ["boos"], img: "eau de parfum boos black boos for men (50ml).jpg", desc: "Haruman lelaki berani dan maskulin dalam botol hitam matte 50ml yang memberi kesan aura mewah dan tegas.", benefits: ["Aroma kayu & rempah maskulin yang memukau", "Botol hitam matte bergaya moden (50ml)", "Tahan lama untuk aktiviti siang dan malam"] },
+        { brand: "Eau De Parfum", name: "Victorious & Lovely Lassie Noir (50ml)", kw: ["victorious &"], img: "Eau De Parfum Victorious & Lovely Lassie Noir (50ml).jpg", desc: "Edisi khas Noir dengan kemasan hitam perak dan emas yang menggabungkan karakter elegan serta ketahanan aroma tinggi.", benefits: ["Wangian berkarakter mewah dan tahan lama", "Isipadu 50ml dengan semburan halus", "Pilihan tepat untuk pencinta wangian eksklusif"] },
+        { brand: "Eau De Parfum", name: "Love's Fresh For Women", kw: ["fresh"], img: "Eau De Parfum Love's Fresh For Women.jpg", desc: "Haruman wanita segar berinspirasikan bunga-bungaan lembut yang memberi kesegaran ceria sepanjang hari.", benefits: ["Nota bunga segar yang ringan & menyamankan", "Sesuai dipakai ke pejabat atau bersantai", "Aroma lembut yang tidak menyengat"] },
+        { brand: "Guardian", name: "Rose Silky Shower Cream (1000ml)", kw: ["rose"], img: "Guardian rose silky shower cream (1000ml).jpg", desc: "Krim mandian lembut berharuman bunga ros dengan formula Hydra Active yang membersihkan sambil mengekalkan kelembutan kulit sehalus sutera.", benefits: ["Haruman bunga ros mewah yang menenangkan", "Formula Hydra Active melembapkan kulit kering", "Botol pam besar 1000ml jimat untuk seisi keluarga"] },
+        { brand: "Guardian", name: "Grapefruit Refreshing Body Wash", kw: ["grapefruit"], img: "Guardian grapefruit refreshing body wash.jpg", desc: "Gel mandian menyegarkan dengan ekstrak limau gedang (Grapefruit) yang membangkitkan kesegaran tubuh selepas seharian beraktiviti.", benefits: ["Aroma sitrus Grapefruit yang segar & bertenaga", "Membersih kulit secara lembut tanpa rasa kering", "Memberi rasa bersih dan nyaman sepanjang hari"] },
+        { brand: "Guardian Essential", name: "Goat's Milk Shower Cream (1200ml)", kw: ["goat"], img: "GuardianEssential goat's milk shower cream (1200ml).jpg", desc: "Krim mandian susu kambing berkhasiat tinggi dalam pek 1200ml untuk membelai kulit agar kekal lembut, anjal dan sihat berseri.", benefits: ["Diperkaya kebaikan susu kambing semula jadi", "Sangat sesuai untuk kulit kering & sensitif", "Saiz ekonomi 1200ml tahan lama"] },
+        { brand: "Scarlett", name: "Acne Essence Toner", kw: ["acne"], img: "Scarlett acne essence toner.jpg", desc: "Essence toner ringan yang membantu menenangkan kulit berjerawat, mengawal lebihan sebum serta mempersiapkan kulit menyerap serum dengan lebih baik.", benefits: ["Meredakan kemerahan & jerawat aktif", "Menghidrasi dan menyegarkan pori-pori kulit", "Tekstur ringan cepat meresap tanpa melekit"] },
+        { brand: "Scarlett", name: "Jolly Body Serum Ceramide Hyalur (500ml)", kw: ["jolly"], img: "Scarlett jolly body serum ceramide hyalur (500ml).jpg", desc: "Serum badan berprestasi tinggi dengan Ceramide dan Hyaluronic Acid untuk mencerahkan tona kulit badan serta mengunci kelembapan mendalam.", benefits: ["Gabungan Ceramide & Hyalur untuk skin barrier badan", "Haruman mewah Jolly yang tahan lama pada kulit", "Mencerahkan & melembutkan kulit kusam (500ml)"] },
+        { brand: "Vaseline", name: "Intensive Care Dry Skin Repair (400ml)", kw: ["dry skin"], img: "Vaseline intensive care dry skin repair (400ml).jpg", desc: "Losyen pemulihan kulit kering dengan ekstrak oat tulen yang memberi kelembapan mendalam sehingga 72 jam untuk kulit halus sihat.", benefits: ["Melembapkan kulit sangat kering sehingga 72 jam", "Diperkaya ekstrak oat tulen yang menenangkan", "Cepat meresap tanpa meninggalkan kesan berminyak"] },
+        { brand: "Herbal Care", name: "Cooling Aloe Moisturizing Lotion", kw: ["cooling aloe"], img: "Herbal care cooling aloe moisturizing lotion.jpg", desc: "Losyen pelembap Aloe Vera dengan kesan dingin yang menyamankan kulit selepas terdedah kepada panas matahari.", benefits: ["Memberi rasa sejuk & segar serta-merta", "Membantu memulihkan kelembapan kulit kering", "Tekstur ringan sesuai untuk cuaca panas"] },
+        { brand: "Smerl", name: "Nourishing Vitamin E Lotion (350ml)", kw: ["vitamin e"], img: "Smerl nourishing vitamin E lotion (350ml).jpg", desc: "Losyen badan kaya dengan Vitamin E yang membantu melindungi keanjalan kulit serta menjadikannya lembut, halus dan berseri.", benefits: ["Kaya antioksidan Vitamin E untuk kulit sihat", "Melembutkan bahagian kulit kasar seperti siku & lutut", "Haruman lembut dan menenangkan (350ml)"] },
+        { brand: "Vaseline", name: "Intensive Care Aloe Soothe (320ml)", kw: ["aloe soothe"], img: "Vaseline intensive care aloe soothe (320ml).jpg", desc: "Losyen badan dengan Aloe Vera dan teknologi Pro-Ceramide untuk menenangkan kulit kering serta mengekalkan hidrasi sehingga 48 jam.", benefits: ["48 jam kelembapan berterusan dengan Pro-Ceramide", "Ekstrak Aloe Vera tulen menyegarkan kulit", "Botol pam 320ml mudah digunakan setiap hari"] },
+        { brand: "Vaseline", name: "Intensive Care Cocoa Glow (400ml)", kw: ["cocoa"], img: "Vaseline intensive care cocoa glow (400ml).jpg", desc: "Losyen badan dengan mentega koko tulen yang menyuburkan kulit kusam agar tampil lebih bercahaya, lembut dan gebu sepanjang hari.", benefits: ["Diperkaya mentega koko tulen untuk seri semula jadi", "48 jam penjagaan intensif untuk kulit lembut", "Aroma koko hangat yang sangat menenangkan (400ml)"] },
+        { brand: "Vaseline", name: "Intensive Care Deep Restore Lotion (400ml)", kw: ["deep restore"], img: "Vaseline intensive care deep restore lotion (400ml).jpg", desc: "Losyen pelembap harian dengan titisan mikro Vaseline Jelly yang meresap jauh ke dalam lapisan kulit untuk memulihkan kulit kering secara berkesan.", benefits: ["Diperkaya mikro-titisan Vaseline Jelly untuk kelembapan mendalam", "Cepat meresap ke dalam kulit tanpa rasa melekit", "Menjadikan kulit terasa lembut dan sihat sepanjang hari"] },
+        { brand: "Kilei", name: "Bidara Leafs Botanical Body Soap", kw: ["biadara", "bidara"], img: "Kilei biadara leafs botanical body soap.jpg", desc: "Sabun mandian cecair berasaskan ekstrak daun bidara semula jadi untuk menyegarkan tubuh, menenangkan kulit serta memberi keselesaan selepas seharian beraktiviti.", benefits: ["Ekstrak daun bidara pilihan yang menyegarkan badan", "Membersih secara lembut tanpa mengeringkan kulit", "Aroma herba segar yang menenangkan fikiran"] },
+        { brand: "Skin Cottage", name: "Bath+Club Botanical Body Bath", kw: ["skin cottage"], img: "Skin cottage bath+club botanical body bath.jpg", desc: "Gel mandian mewah dengan haruman bunga-bungaan tropika yang membelai kulit agar kekal halus, segar dan harum sepanjang hari.", benefits: ["Haruman flora klasik yang elegan dan tahan lama", "Buih lembut membersihkan kotoran dengan berkesan", "Botol pam praktikal untuk kegunaan harian"] },
+        { brand: "Johnson's", name: "Gentle Baby & Family Bath Collection", kw: ["johnson"], img: "Johnson's gentle baby & family bath collection.jpg", desc: "Rangkaian mandian lembut pilihan keluarga (Peach, Milk & Rice, dan Moisture) dengan formula pH seimbang yang selamat untuk kulit sensitif.", benefits: ["Formula lembut tidak memedihkan mata & mesra kulit sensitif", "Pilihan variasi Peach, Baby Bath & Moisture", "Botol pam berpemegang mudah digunakan seisi keluarga"] },
+        { brand: "Watsons", name: "Love My Skin Freesia Botanical Body Wash", kw: ["freesia"], img: "Watsons love my skin freesia botanical body wash.jpg", desc: "Gel mandian botani berharuman bunga Freesia yang menyegarkan sambil mengekalkan kelembapan semula jadi kulit anda.", benefits: ["Aroma bunga Freesia yang lembut dan memikat", "Formulasi botani membersihkan kulit secara halus", "Menjadikan kulit terasa segar dan tidak tegang"] },
+        { brand: "Guardian", name: "Antibacterial Cool Mint Hand Wash (500ml)", kw: ["cool mint"], img: "Guardian antibacterial cool mint hand wash (500ml).jpg", desc: "Pencuci tangan antibakteria dengan ekstrak pudina segar yang menghapuskan 99.9% kuman sambil menjaga kelembutan kulit tangan.", benefits: ["Perlindungan antibakteria membasmi 99.9% kuman", "Ekstrak daun pudina memberi rasa dingin & bersih", "Formula lembut sesuai untuk cucian tangan kerap (500ml)"] }
+    ];
+
+    function imgFallback(imgEl, label) {
+        imgEl.onerror = null;
+        imgEl.src = 'https://placehold.co/300x400/FAF7F5/1B5459?text=' + encodeURIComponent(label || 'Ayda Shop');
     }
 
-    /* ==========================================================================
-       1. PRODUCT CATALOG DATA + LIVE GITHUB REPO AUTO-DISCOVERY
-       ========================================================================== */
-    const products = [
-        {
-            id: 0,
-            brand: "Glad2Glow",
-            name: "Blueberry 5% Ceramide Moisturizer",
-            category: "moisturizer",
-            badge: "Best Seller",
-            keywords: ["blueberry"],
-            img: "glad2glow blueberry 5% ceramide moistturizer.jpg",
-            altImgs: ["glad2glow blueberry 5% ceramide moistturizer .jpg", "Glad2Glow blueberry 5% ceramide moistturizer.jpg", "glad2glow blueberry 5% ceramide moisturizer.jpg", "823.jpg"],
-            desc: "Pelembap bertekstur ringan dengan ekstrak Blueberry dan 5% Ceramide untuk menenangkan kemerahan, merawat jerawat, dan menguatkan skin barrier.",
-            benefits: [
-                "Melegakan kemerahan & iritasi kulit sensitif",
-                "Mengunci kelembapan sehingga 24 jam",
-                "Tekstur gel-krim lembut tanpa rasa melekit"
-            ]
-        },
-        {
-            id: 1,
-            brand: "Glad2Glow",
-            name: "Centella Allantoin Soothing Gel",
-            category: "moisturizer",
-            badge: "Calming Care",
-            keywords: ["centella"],
-            img: "Glad2Glow Centella Allantoin Soothing Gel .jpg",
-            altImgs: ["Glad2Glow Centella Allantoin Soothing Gel.jpg", "glad2glow Centella Allantoin Soothing Gel .jpg"],
-            desc: "Gel pelembap menyegarkan yang diperkaya dengan Centella Asiatica dan Allantoin untuk menyejukkan kulit kemerahan serta mengawal minyak berlebihan.",
-            benefits: [
-                "Kesan dingin segera untuk kulit stres & berjerawat",
-                "Sesuai untuk kulit berminyak dan kombinasi",
-                "Membantu memudarkan bekas kemerahan"
-            ]
-        },
-        {
-            id: 2,
-            brand: "Glad2Glow",
-            name: "Pomegranate Niacinamide Brightening",
-            category: "moisturizer",
-            badge: "Glow Boost",
-            keywords: ["pomegranate"],
-            img: "glad2glow pomegranate niacinamide brightening moisturizer.jpg",
-            altImgs: ["glad2glow pomegranate niacinamide brightening moisturizer .jpg", "glad2glow pomegranate niacinamide brightening .jpg", "glad2glow pomegranate niacinamide brightening.jpg", "Glad2Glow pomegranate niacinamide brightening moisturizer.jpg"],
-            desc: "Pelembap pencerah dengan kombinasi ekstrak Delima (Pomegranate) dan Niacinamide untuk menyekatakan tona kulit kusam agar tampil berseri.",
-            benefits: [
-                "Mencerahkan kulit kusam secara semula jadi",
-                "Menyekatakan tona kulit tidak sekata",
-                "Menjadikan kulit terasa anjal dan halus"
-            ]
-        },
-        {
-            id: 3,
-            brand: "Glad2Glow",
-            name: "Yuja 377 Dark Spot Moisturizer",
-            category: "moisturizer",
-            badge: "Dark Spot",
-            keywords: ["yuja", "377"],
-            img: "glad2glow yuja 377 dark spot moisturizer.jpg",
-            altImgs: ["Glad2Glow yuja 377 dark spot moisturizer.jpg"],
-            desc: "Formulasi khas dengan ekstrak Yuja dan SymWhite 377 yang menyasarkan bintik hitam serta parut jerawat untuk kulit yang lebih jernih.",
-            benefits: [
-                "Memudarkan parut jerawat & bintik hitam degil",
-                "Memberi hidrasi mendalam dengan aroma sitrus segar",
-                "Membantu kulit tampak lebih cerah bermaya"
-            ]
-        },
-        {
-            id: 4,
-            brand: "Glad2Glow",
-            name: "Daily Moisturizing Sunscreen SPF 50",
-            category: "sunscreen",
-            badge: "UV Shield",
-            keywords: ["daily", "sunscreen"],
-            img: "glad2glow daily moisturizing sunscreen spf 50.jpg",
-            altImgs: ["Glad2Glow daily moisturizing sunscreen spf 50.jpg"],
-            desc: "Pelindung matahari harian SPF 50 PA+++ yang melindungi kulit daripada sinaran UVA/UVB sambil mengekalkan kelembapan tanpa whitecast.",
-            benefits: [
-                "Perlindungan spektrum luas SPF 50 PA+++",
-                "Sangat ringan & mudah meresap di bawah mekap",
-                "Tidak menyumbat pori-pori"
-            ]
-        },
-        {
-            id: 5,
-            brand: "Mary Kay",
-            name: "Sheer UV Defense Milk SPF 50+",
-            category: "sunscreen",
-            badge: "Premium UV",
-            keywords: ["mary kay", "sheer"],
-            img: "mary kay sheer uv defense milk spf 50.jpg",
-            altImgs: ["Mary Kay sheer uv defense milk spf 50.jpg"],
-            desc: "Susu pelindung UV berprestasi tinggi SPF 50+/PA+++ dengan kemasan halus bak sutera untuk perlindungan maksimum daripada penuaan pramatang.",
-            benefits: [
-                "Tekstur susu ultra-ringan & tidak berminyak",
-                "Perlindungan tinggi SPF 50+ untuk cuaca tropika",
-                "Memberi kemasan kulit licin berseri"
-            ]
-        },
-        {
-            id: 6,
-            brand: "M.A.C Cosmetics",
-            name: "Squirt Plumping Gloss Stick",
-            category: "cleanser",
-            badge: "Trending",
-            keywords: ["squirt", "plumping"],
-            img: "m.a.c cosmetics squirt plumping gloss stick.jpg",
-            altImgs: ["M.A.C Cosmetics squirt plumping gloss stick.jpg"],
-            desc: "Gincu gloss berkhasiat yang mencai
+    function filterProducts(cat, btn) {
+        document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+        if (btn) btn.classList.add('active');
+        document.querySelectorAll('.product-card').forEach(function(card) {
+            if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+                card.classList.remove('hidden-card');
+            } else {
+                card.classList.add('hidden-card');
+            }
+        });
+    }
+
+    function openProductModal(id) {
+        var p = productDetails[id];
+        if (!p) return;
+        var cardImg = document.querySelector('img[data-pid="' + id + '"]');
+        var modalImg = document.getElementById('modalImg');
+        modalImg.onerror = function() { imgFallback(modalImg, p.brand); };
+        modalImg.src = cardImg ? cardImg.src : p.img;
+        document.getElementById('modalBrand').textContent = p.brand;
+        document.getElementById('modalTitle').textContent = p.name;
+        document.getElementById('modalDesc').textContent = p.desc;
+        document.getElementById('modalBenefits').innerHTML = p.benefits.map(function(b) {
+            return '<li><span style="color:#1B5459;font-weight:700;">✓</span><span>' + b + '</span></li>';
+        }).join('');
+        var waMsg = encodeURIComponent('Hai Ayda Shop! Saya berminat dengan produk *' + p.brand + ' - ' + p.name + '*. Boleh kongsikan harga & stok terkini?');
+        document.getElementById('modalWaLink').href = 'https://wa.me/601174717796?text=' + waMsg;
+        document.getElementById('productModal').classList.add('show');
+    }
+
+    function openQrModal() {
+        document.getElementById('qrModal').classList.add('show');
+    }
+
+    function shareDigitalCard() {
+        if (navigator.share) {
+            navigator.share({
+                title: 'Ayda Shop | Marketing Executive',
+                text: 'Terokai koleksi produk kecantikan tulen & konsultasi kulit bersama Ayda Shop.',
+                url: CARD_URL
+            }).catch(function() {});
+        } else {
+            copyText(CARD_URL, 'Pautan kad digital disalin!');
+        }
+    }
+
+    function downloadVCard() {
+        var vcard = [
+            "BEGIN:VCARD",
+            "VERSION:3.0",
+            "N:Shop;Ayda;;;",
+            "FN:Ayda Shop - Marketing Executive",
+            "ORG:Ayda Shop Beauty & Cosmetics",
+            "TITLE:Marketing Executive",
+            "TEL;TYPE=CELL,VOICE:+601174717796",
+            "EMAIL;TYPE=PREF,INTERNET:Aydashop19@gmail.com",
+            "URL:" + CARD_URL,
+            "END:VCARD"
+        ].join("\n");
+        var blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = "Ayda_Shop_Marketing_Executive.vcf";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast("Fail kenalan (.vcf) dimuat turun!");
+    }
+
+    function copyText(text, msg) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function() { showToast(msg); }).catch(function() { fallbackCopy(text, msg); });
+        } else {
+            fallbackCopy(text, msg);
+        }
+    }
+
+    function fallbackCopy(text, msg) {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast(msg);
+    }
+
+    var toastTimer;
+    function showToast(msg) {
+        var box = document.getElementById('toastBox');
+        document.getElementById('toastMsg').textContent = msg;
+        box.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function() { box.classList.remove('show'); }, 2600);
+    }
+
+    function submitLeadForm(e) {
+        e.preventDefault();
+        var name = document.getElementById('leadName').value.trim();
+        var topic = document.getElementById('leadTopic').value;
+        var msg = encodeURIComponent('Hai Ayda Shop! 👋\n\nNama saya *' + name + '*.\nSaya ingin berhubung mengenai: *' + topic + '*.\n\nMohon bantuan & info lanjut ya!');
+        window.open('https://wa.me/601174717796?text=' + msg, '_blank');
+    }
+
+    window.addEventListener('scroll', function() {
+        var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var bar = document.getElementById('scrollProgress');
+        if (bar) bar.style.width = (height > 0 ? (winScroll / height) * 100 : 0) + "%";
+    });
+
+    /* Auto-sync exact filenames from GitHub repository */
+    fetch('https://api.github.com/repos/aydashop19/ayda-shop/contents/')
+        .then(function(r) { return r.ok ? r.json() : null; })
+        .then(function(files) {
+            if (!Array.isArray(files)) return;
+            var imgs = files.filter(function(f) { return f.type === 'file' && /\.(jpg|jpeg|png|webp)$/i.test(f.name); }).map(function(f) { return f.name; });
+            productDetails.forEach(function(p, idx) {
+                var found = imgs.find(function(fn) {
+                    var low = fn.toLowerCase();
+                    return p.kw.some(function(k) { return low.indexOf(k) !== -1; });
+                });
+                if (found) {
+                    p.img = found;
+                    var el = document.querySelector('img[data-pid="' + idx + '"]');
+                    if (el) {
+                        el.onerror = function() { imgFallback(el, p.brand); };
+                        el.src = found;
+                    }
+                }
+            });
+        })
+        .catch(function() {});
+</script>
+</body>
+</html>
